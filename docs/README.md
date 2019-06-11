@@ -1,3 +1,3 @@
 # Documentation
 
-#### [Latest Spec](https://identity.foundation/lds-ecdsa-secp256k1-2019.js//)
+#### [Latest Spec](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/)
