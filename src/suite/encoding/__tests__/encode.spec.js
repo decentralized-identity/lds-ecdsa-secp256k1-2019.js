@@ -1,33 +1,33 @@
-const EC = require("elliptic").ec;
-const secp256k1 = new EC("secp256k1");
-const fixtures = require("../../../__tests__/__fixtures__");
+const EC = require('elliptic').ec;
+
+const secp256k1 = new EC('secp256k1');
+const fixtures = require('../../../__tests__/__fixtures__');
 
 const {
   sha256,
   signatureToHex,
   hexToSignature,
   encodeHexAsBase64Url,
-  decodeHexFromBase64Url
-} = require("../index");
+  decodeHexFromBase64Url,
+} = require('../index');
 
-describe("encoding", () => {
-  it("signatureToHex and hexToSignature ", () => {
+describe('encoding', () => {
+  it('signatureToHex and hexToSignature ', () => {
     const { publicKey, privateKey } = fixtures.keypair;
 
-    const verifyData =
-      fixtures.base64UrlEncoded + "12321k3jh12g3g12g3j112%^$D%&$ASDA";
+    const verifyData = `${fixtures.base64UrlEncoded}12321k3jh12g3g12g3j112%^$D%&$ASDA`;
     const verifyDataHash = sha256(verifyData);
-    const verifyDataHashBuffer = Buffer.from(verifyDataHash, "hex");
+    const verifyDataHashBuffer = Buffer.from(verifyDataHash, 'hex');
 
     const signature = secp256k1.sign(
       verifyDataHashBuffer,
-      secp256k1.keyFromPrivate(privateKey)
+      secp256k1.keyFromPrivate(privateKey),
     );
 
     const s = {
       r: signature.r,
       s: signature.s,
-      v: signature.recoveryParam
+      v: signature.recoveryParam,
     };
 
     const signatureHexEncoded = signatureToHex(s);
@@ -38,15 +38,15 @@ describe("encoding", () => {
       .recoverPubKey(
         verifyDataHashBuffer,
         { ...signatureObject },
-        signatureObject.v
+        signatureObject.v,
       )
-      .encode("hex");
+      .encode('hex');
 
     const verified = recoveredKey === `${publicKey}`;
     expect(verified).toBe(true);
   });
 
-  it("encodeHexAsBase64Url and decodeHexFromBase64Url ", () => {
+  it('encodeHexAsBase64Url and decodeHexFromBase64Url ', () => {
     const b64Encoded = encodeHexAsBase64Url(fixtures.signatureHex);
     const b64Decoded = decodeHexFromBase64Url(b64Encoded);
     expect(b64Decoded).toEqual(fixtures.signatureHex);
