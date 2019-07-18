@@ -18,7 +18,6 @@ describe('EcdsaKoblitzSignature2016', () => {
 
     // eslint-disable-next-line no-underscore-dangle
     const privateKey = addrNode._privateKey.toString('hex');
-
     const ethPublicKey = ethUtil.privateToPublic(
       Buffer.from(privateKey, 'hex'),
     );
