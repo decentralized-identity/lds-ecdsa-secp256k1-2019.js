@@ -16,6 +16,7 @@
     "jest": true
   },
   "rules": {
-    "strict": 0
+    "strict": 0,
+    "node/no-unsupported-features/es-syntax": 0
   }
 }
