@@ -1,5 +1,4 @@
 const fixtures = require('./__fixtures__');
-
 const { sign, verify } = require('../index');
 
 const { publicKey, privateKey } = fixtures.keypair;

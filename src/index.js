@@ -23,7 +23,7 @@ const sign = async ({ data, signatureOptions, privateKey }) => {
 };
 
 const verify = async ({ data, publicKey }) => {
-  const { framed, verifyDataHexString } = await createVerifyData(
+  const { verifyDataHexString } = await createVerifyData(
     data,
     data.proof,
   );
