@@ -1,7 +1,6 @@
 const EC = require('elliptic').ec;
 
 const secp256k1 = new EC('secp256k1');
-
 const didJWT = require('did-jwt');
 
 const fixtures = require('./__fixtures__');

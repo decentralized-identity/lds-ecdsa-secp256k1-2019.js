@@ -16,6 +16,7 @@ describe('EcdsaKoblitzSignature2016', () => {
     const root = hdkey.fromMasterSeed(seed);
     const addrNode = root.derive(hdPath);
 
+    // eslint-disable-next-line no-underscore-dangle
     const privateKey = addrNode._privateKey.toString('hex');
 
     const ethPublicKey = ethUtil.privateToPublic(

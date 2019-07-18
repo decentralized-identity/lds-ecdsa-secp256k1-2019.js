@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --env node --coverage --testPathIgnorePatterns __fixtures__ -- ",
     "codecov": "codecov",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "lint": "eslint ./src"
   },
   "repository": {
     "type": "git",
