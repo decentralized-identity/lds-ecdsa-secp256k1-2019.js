@@ -1,20 +1,18 @@
-const jsonld = require("jsonld");
-const crypto = require("crypto");
+const jsonld = require('jsonld');
+const crypto = require('crypto');
 
-const canonize = async data => {
-  return jsonld.canonize(data);
-};
+const canonize = async data => jsonld.canonize(data);
 
-const sha256 = data => {
-  const h = crypto.createHash("sha256");
+const sha256 = (data) => {
+  const h = crypto.createHash('sha256');
   h.update(data);
-  return h.digest("hex");
+  return h.digest('hex');
 };
 
-const cannonizeSignatureOptions = signatureOptions => {
-  let _signatureOptions = {
+const cannonizeSignatureOptions = (signatureOptions) => {
+  const _signatureOptions = {
     ...signatureOptions,
-    "@context": "https://w3id.org/security/v2"
+    '@context': 'https://w3id.org/security/v2',
   };
   delete _signatureOptions.jws;
   delete _signatureOptions.signatureValue;
@@ -22,9 +20,9 @@ const cannonizeSignatureOptions = signatureOptions => {
   return canonize(_signatureOptions);
 };
 
-const cannonizeDocument = doc => {
-  let _doc = { ...doc };
-  delete _doc["proof"];
+const cannonizeDocument = (doc) => {
+  const _doc = { ...doc };
+  delete _doc.proof;
   return canonize(_doc);
 };
 
@@ -33,23 +31,23 @@ const createVerifyData = async (data, signatureOptions) => {
     signatureOptions.verificationMethod = signatureOptions.creator;
   }
   if (!signatureOptions.verificationMethod) {
-    throw new Error("signatureOptions.verificationMethod is required");
+    throw new Error('signatureOptions.verificationMethod is required');
   }
   if (!signatureOptions.created) {
     signatureOptions.created = new Date().toISOString();
   }
 
-  signatureOptions.type = "EcdsaSecp256k1Signature2019";
+  signatureOptions.type = 'EcdsaSecp256k1Signature2019';
 
   const [expanded] = await jsonld.expand(data);
   const framed = await jsonld.compact(
     expanded,
-    "https://w3id.org/security/v2",
-    { skipExpansion: true }
+    'https://w3id.org/security/v2',
+    { skipExpansion: true },
   );
 
   const cannonizedSignatureOptions = await cannonizeSignatureOptions(
-    signatureOptions
+    signatureOptions,
   );
   const hashOfCannonizedSignatureOptions = sha256(cannonizedSignatureOptions);
   const cannonizedDocument = await cannonizeDocument(framed);
@@ -58,7 +56,7 @@ const createVerifyData = async (data, signatureOptions) => {
   return {
     framed,
     verifyDataHexString:
-      hashOfCannonizedSignatureOptions + hashOfCannonizedDocument
+      hashOfCannonizedSignatureOptions + hashOfCannonizedDocument,
   };
 };
 

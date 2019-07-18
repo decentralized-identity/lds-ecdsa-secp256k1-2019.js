@@ -1,0 +1,22 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "plugins": ["security", "jest"],
+  "extends": [
+    "airbnb-base",
+    "plugin:jest/recommended",
+    "plugin:node/recommended",
+    "plugin:security/recommended"
+  ],
+  "env": {
+    "node": true
+  },
+  "globals": {
+    "jest": true
+  },
+  "rules": {
+    "strict": 0,
+    "node/no-unsupported-features/es-syntax": 0
+  }
+}

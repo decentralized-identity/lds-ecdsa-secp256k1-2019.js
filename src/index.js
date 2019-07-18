@@ -1,23 +1,23 @@
-const suite = require("./suite");
-const createVerifyData = require("./createVerifyData");
+const suite = require('./suite');
+const createVerifyData = require('./createVerifyData');
 
 const sign = async ({ data, signatureOptions, privateKey }) => {
   const { framed, verifyDataHexString } = await createVerifyData(
     data,
-    signatureOptions
+    signatureOptions,
   );
 
   const signatureValue = await suite.sign({
     verifyData: verifyDataHexString,
-    privateKey
+    privateKey,
   });
 
   const documentWithProof = {
     ...framed,
     proof: {
       ...signatureOptions,
-      signatureValue
-    }
+      signatureValue,
+    },
   };
   return documentWithProof;
 };
@@ -25,17 +25,17 @@ const sign = async ({ data, signatureOptions, privateKey }) => {
 const verify = async ({ data, publicKey }) => {
   const { framed, verifyDataHexString } = await createVerifyData(
     data,
-    data.proof
+    data.proof,
   );
 
   return suite.verify({
     verifyData: verifyDataHexString,
     signature: data.proof.signatureValue,
-    publicKey
+    publicKey,
   });
 };
 
 module.exports = {
   sign,
-  verify
+  verify,
 };
