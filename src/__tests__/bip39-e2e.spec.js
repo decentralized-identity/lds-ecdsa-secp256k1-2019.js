@@ -52,17 +52,19 @@ describe('EcdsaKoblitzSignature2016', () => {
       ),
     ).toBe(ethIdentity.ethAddress);
 
-    // let result = await sign({
-    //   data: { ...fixtures.linkedData },
-    //   creator: `did:example:123`,
-    //   privateKey: ethIdentity.ethPrivateKey
-    // });
+    let result = await sign({
+      data: { ...fixtures.linkedData },
+      signatureOptions: {
+        creator: 'did:example:123',
+      },
+      privateKey: ethIdentity.ethPrivateKey,
+    });
 
-    // expect(result.signature).toBeDefined();
-    // result = await verify({
-    //   data: result,
-    //   publicKey: ethIdentity.ethPublicKey
-    // });
-    // expect(result).toBe(true);
-  });
+    expect(result.proof).toBeDefined();
+    result = await verify({
+      data: result,
+      publicKey: ethIdentity.ethPublicKey,
+    });
+    expect(result).toBe(true);
+  }, 20 * 1000);
 });

@@ -10,15 +10,15 @@ const {
 
 module.exports = async ({ verifyData, signature, publicKey }) => {
   const verifyDataHash = sha256(verifyData);
-
   const verifyDataHashBuffer = Buffer.from(verifyDataHash, 'hex');
   const signatureHex = decodeHexFromBase64Url(signature);
-
   const s = hexToSignature(signatureHex);
 
   const recoveredKey = secp256k1
     .recoverPubKey(verifyDataHashBuffer, { ...s }, s.v)
     .encode('hex');
-
-  return recoveredKey === `${publicKey}`;
+  // Here we use .includes instead of === because we want to support two publicKey format:
+  // The old uncompressed format, where the key is prefixed with 04
+  // The new uncompressed format, without this prefix
+  return recoveredKey.includes(publicKey);
 };
