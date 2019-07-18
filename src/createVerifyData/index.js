@@ -10,34 +10,35 @@ const sha256 = (data) => {
 };
 
 const cannonizeSignatureOptions = (signatureOptions) => {
-  const _signatureOptions = {
+  const newSignatureOptions = {
     ...signatureOptions,
     '@context': 'https://w3id.org/security/v2',
   };
-  delete _signatureOptions.jws;
-  delete _signatureOptions.signatureValue;
-  delete _signatureOptions.proofValue;
-  return canonize(_signatureOptions);
+  delete newSignatureOptions.jws;
+  delete newSignatureOptions.signatureValue;
+  delete newSignatureOptions.proofValue;
+  return canonize(newSignatureOptions);
 };
 
 const cannonizeDocument = (doc) => {
-  const _doc = { ...doc };
-  delete _doc.proof;
-  return canonize(_doc);
+  const newDoc = { ...doc };
+  delete newDoc.proof;
+  return canonize(newDoc);
 };
 
 const createVerifyData = async (data, signatureOptions) => {
+  const newSignatureOptions = { ...signatureOptions };
   if (signatureOptions.creator) {
-    signatureOptions.verificationMethod = signatureOptions.creator;
+    newSignatureOptions.verificationMethod = signatureOptions.creator;
   }
-  if (!signatureOptions.verificationMethod) {
+  if (!newSignatureOptions.verificationMethod) {
     throw new Error('signatureOptions.verificationMethod is required');
   }
   if (!signatureOptions.created) {
-    signatureOptions.created = new Date().toISOString();
+    newSignatureOptions.created = new Date().toISOString();
   }
 
-  signatureOptions.type = 'EcdsaSecp256k1Signature2019';
+  newSignatureOptions.type = 'EcdsaSecp256k1Signature2019';
 
   const [expanded] = await jsonld.expand(data);
   const framed = await jsonld.compact(
@@ -55,8 +56,7 @@ const createVerifyData = async (data, signatureOptions) => {
 
   return {
     framed,
-    verifyDataHexString:
-      hashOfCannonizedSignatureOptions + hashOfCannonizedDocument,
+    verifyDataHexString: `${hashOfCannonizedSignatureOptions}${hashOfCannonizedDocument}`,
   };
 };
 
