@@ -26,6 +26,6 @@ describe('lds-ecdsa-secp256k1-2019.js', () => {
 
       expect(verified).toBe(true);
     },
-    10 * 1000,
+    20 * 1000,
   );
 });
