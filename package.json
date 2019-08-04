@@ -1,8 +1,12 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "docs": "./scripts/copy-docs.sh"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.15",
-    "lerna": "^3.16.4"
+    "lerna": "^3.16.4",
+    "prettier": "^1.18.2"
   }
 }

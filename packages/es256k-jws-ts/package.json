@@ -15,7 +15,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/decentralized-identity/element"
+    "url": "https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js"
   },
   "author": "Orie Steele <orie@transmute.industries>",
   "license": "Apache-2.0",
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "cleanup": "shx rm -rf dist docs",
-    "prebuild2": "npm run cleanup && npm run verify",
+    "prebuild": "npm run cleanup && npm run verify",
     "build": "tsc --project ./tsconfig.build.json && tsc --project ./tsconfig.build.json --target es2018 --outDir dist/esm2015 && rollup -c config/rollup.config.js && rollup -c config/rollup.config.js --environment NODE_ENV:production && node scripts/build",
     "postbuild": "npm run size",
     "docs": "typedoc -p . --theme minimal --target 'es6' --tsconfig ./tsconfig.docs.json --exclude  'src/**/*.spec.ts,src/**/__fixtures__/*,**/node_modules/**' --out docs src/",
