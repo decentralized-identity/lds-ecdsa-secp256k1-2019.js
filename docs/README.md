@@ -2,7 +2,7 @@
 
 #### [Demo](./demo)
 
-#### [W3C Spec (WIP)](./spec)
+#### [W3C DVCG Spec](https://w3c-dvcg.github.io/lds-ecdsa-secp256k1-2019/)
 
 #### [ES256K Library Documentation](./es256k-jws-ts)
 

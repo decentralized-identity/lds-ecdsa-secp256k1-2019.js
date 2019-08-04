@@ -5,7 +5,7 @@
 🚧 This library is experimental / under development / not audited. Use at your own risk.
 
 - [Demo](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/demo)
-- [W3C Spec (WIP)](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/spec)
+- [W3C DVCG Spec](https://w3c-dvcg.github.io/lds-ecdsa-secp256k1-2019/)
 - [EcdsaSecp256k1Signature2019 Library Documentation](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/lds-ecdsa-secp256k1-2019/)
 - [ES256K Library Documentation](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/es256k-jws-ts/)
 
