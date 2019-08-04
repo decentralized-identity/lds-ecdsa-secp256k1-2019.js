@@ -179,6 +179,29 @@ been modified in transit and came from someone possessing a particular secret.
         </dd>
       </dl>
 
+      <section>
+        <h2>Linked Data Signature Terms</h2>
+        <p>
+  The following terms are used to describe concepts involved in the
+  generation and verification of signatures according to EcdsaSecp256k1Signature2019.
+        </p>
+  
+        <dl>
+          <dt><dfn>EcdsaSecp256k1Signature2019</dfn></dt>
+          <dd>
+            A JSON-LD Document has been signed with EcdsaSecp256k1Signature2019, 
+            when it contains a proof field, and that proof field contains a jws, as 
+            is defined by this spec.
+          </dd>
+
+          <dt><dfn>EcdsaSecp256k1VerificationKey2019</dfn></dt>
+          <dd>
+            A secp256k1 public key. If the key is embedded in a controller with property name publicKeyJwk, the key must be a valid JWK. If the key is embeded as publicKeyHex, it must be a compressed public key, and must be converted to JWK before being used to verify signatures according to JWS.
+          </dd>
+        </dl>
+  
+      </section>
+
     </section>
 
     <section>
@@ -211,7 +234,7 @@ the following algorithms:
           <tr>
             <td>signatureAlgorithm</td>
             <td><a href='https://tools.ietf.org/id/draft-jones-webauthn-secp256k1-00.html'>ES256K</a></td>
-            <td>[[rfc4492]]</td>
+     
             <td>[[rfc6979]]</td>
           </tr>
         </tbody>
