@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.67b6c417.chunk.css",
-    "main.js": "/static/js/main.2f601470.chunk.js",
-    "main.js.map": "/static/js/main.2f601470.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.626d7101.chunk.js": "/static/js/2.626d7101.chunk.js",
-    "static/js/2.626d7101.chunk.js.map": "/static/js/2.626d7101.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.b6cec5da2d2f936329d2d47536132682.js": "/precache-manifest.b6cec5da2d2f936329d2d47536132682.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.67b6c417.chunk.css.map": "/static/css/main.67b6c417.chunk.css.map"
+    "main.css": "/lds-ecdsa-secp256k1-2019.js/demo/static/css/main.67b6c417.chunk.css",
+    "main.js": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/main.21fdb6e5.chunk.js",
+    "main.js.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/main.21fdb6e5.chunk.js.map",
+    "runtime~main.js": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/runtime~main.3cb9eba9.js",
+    "runtime~main.js.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/runtime~main.3cb9eba9.js.map",
+    "static/js/2.626d7101.chunk.js": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/2.626d7101.chunk.js",
+    "static/js/2.626d7101.chunk.js.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/2.626d7101.chunk.js.map",
+    "index.html": "/lds-ecdsa-secp256k1-2019.js/demo/index.html",
+    "precache-manifest.6524f4ae4815be9716a2a2cd593876ff.js": "/lds-ecdsa-secp256k1-2019.js/demo/precache-manifest.6524f4ae4815be9716a2a2cd593876ff.js",
+    "service-worker.js": "/lds-ecdsa-secp256k1-2019.js/demo/service-worker.js",
+    "static/css/main.67b6c417.chunk.css.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/css/main.67b6c417.chunk.css.map"
   }
 }

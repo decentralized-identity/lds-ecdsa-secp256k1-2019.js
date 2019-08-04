@@ -2,6 +2,7 @@
   "name": "lds-ecdsa-secp256k1-2019-demo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://identity.foundation/lds-ecdsa-secp256k1-2019.js/demo/",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
