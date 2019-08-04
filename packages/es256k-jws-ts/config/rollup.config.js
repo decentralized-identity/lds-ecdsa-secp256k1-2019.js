@@ -48,6 +48,8 @@ const PATHS = {
  */
 const external = Object.keys(pkg.peerDependencies) || [];
 
+external.push('crypto');
+
 /**
  *  @type {Plugin[]}
  */
@@ -116,6 +118,7 @@ const UMDconfig = {
     sourcemap: true,
     globals: {
       tslib: 'tslib',
+      crypto: 'crypto',
       'json-stringify-deterministic': 'stringify',
       '@trust/keyto': 'keyto',
       'bitcoin-ts': 'BitcoinTS',
