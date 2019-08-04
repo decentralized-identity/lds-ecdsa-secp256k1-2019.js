@@ -83,11 +83,20 @@ const verified = await sign(signedDocument, publicKey);
 // expect: verified === true
 ```
 
+## Motivation
+
+ES256K is currently a DRAFT, however, it has been implemented and is being used by companies. Node 12 supports ES256K out of the box, but browser support requires custom implementations. This library attempts to provide a Node/Web implementation of ES256K as well as a JSON-LD Signature Suite, EcdsaSecp256k1Signature2019, built on detached ES256K JWS according to [rfc7797](https://tools.ietf.org/html/rfc7797#section-6).
+
+Our approach is based on [lds-ed25519-2018](https://w3c-dvcg.github.io/lds-ed25519-2018/) and [jsonld-signatures](https://github.com/digitalbazaar/jsonld-signatures).
+
 ## Development
 
-This monorepo uses [lerna](https://github.com/lerna/lerna)
+This monorepo uses [lerna](https://github.com/lerna/lerna), most of the scripts in the root directory just call lerna.
 
 ```
 npm i
+npm run build
 npm run test
+npm run coverage
+npm run docs
 ```

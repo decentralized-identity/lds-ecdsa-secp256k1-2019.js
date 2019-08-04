@@ -136,8 +136,7 @@ This specification describes the Ecdsa Secp256k1 Signature created in 2019 for t
 Linked Data Signatures [[LD-SIGNATURES]] specification. It uses the RDF
 Dataset CANONICALIZATION Algorithm [[RDF-DATASET-CANONICALIZATION]] to transform the
 input document into its canonical form. It uses SHA-256 [[RFC6234]] as the
-<a>message digest algorithm</a> and the OpenPGP sign detached algorithm defined in
-OpenPGP [[RFC4880]] as the <a>signature algorithm</a>.
+<a>message digest algorithm</a> and ES256K JWS with Unencoded Payload Option defined in [[rfc7797]] as the <a>signature algorithm</a>.
       </p>
     </section>
 
@@ -186,7 +185,7 @@ been modified in transit and came from someone possessing a particular secret.
       <h2>The 2019 Ecdsa Secp256k1 Signature</h2>
 
       <p>
-The 2019 OpenPGP <a>signature suite</a> MUST be used in
+The 2019 Ecdsa Secp256k1 Signature <a>signature suite</a> MUST be used in
 conjunction with the signing and verification algorithms in the
 Linked Data Signatures [[LD-SIGNATURES]] specification. The suite consists of
 the following algorithms:
@@ -211,8 +210,7 @@ the following algorithms:
           </tr>
           <tr>
             <td>signatureAlgorithm</td>
-            <td><a href='https://github.com/indutny/elliptic#ecdsa'>Ecdsa Secp256k1 Signatures</a></td>
-            <td><a href='https://tools.ietf.org/id/draft-jones-webauthn-secp256k1-00.html'>DRAFT Using secp256k1 with JOSE and COSE</a></td>
+            <td><a href='https://tools.ietf.org/id/draft-jones-webauthn-secp256k1-00.html'>ES256K</a></td>
             <td>[[rfc4492]]</td>
             <td>[[rfc6979]]</td>
           </tr>
@@ -226,10 +224,8 @@ the following algorithms:
       <p>
 This signature suite uses ECDSA over secp256k1 as described in [[rfc6979]]. 
 The signature algorithm relies on
-hexadecimal encoded keys,
-and this flexibility supports integration with exiting software systems such as ethereum and bitcoin.
+JWK encoded keys, and this flexibility supports integration with JOSE.
 
-WE NEED TO DECIDE ON COMPRESSED OR NOT, see: https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/master/packages/element-lib/src/crypto/__tests__/element.crypto.spec.js
 The steps to construct and verify the digital signature are defined below.
       <p>
 
@@ -244,15 +240,15 @@ and </var><var>options</var> as inputs and produces a
         </p>
         <ol class="algorithm">
           <li>
-Take <var>tbs</var>, which is the data to be signed, an unlocked private key and options dictionary as input to the signature suite.
+Take <var>tbs</var>, which is the data to be signed, an private key and options dictionary as input to the signature suite.
           </li>
           <li>
 Perform the
-<a href="https://tools.ietf.org/html/rfc6979#page-8">sign</a> digital signature algorithm specified of
-[[rfc6979]] and return the result as (hexadecimal????) <em>signatureValue</em>.
+<a href="https://tools.ietf.org/html/draft-ietf-cose-webauthn-algorithms-01#section-3.2">sign</a> digital signature algorithm specified of
+[[rfc7797]] and return the result encoded as <em>jws</em>.
           </li>
           <li>
-            The <em>signatureValue</em> will be base64url encoded buffer:
+            The <em>jws</em> will contain ".." per [[rfc7797]]:
             <code>WpQlDT-K5bSPQwFkEKszo0XE1esubvol3K6UMe_...</code>.
                       </li>
         </ol>
@@ -271,8 +267,8 @@ and returns a boolean value.
         <ol class="algorithm">
           <li>
 Take <var>tbv</var> and perform the
-<a href="https://tools.ietf.org/html/rfc6979">Sign</a>
-digital signature verification algorithm specified in [[rfc6979]]. If the result is a valid signature, return
+<a href="https://tools.ietf.org/html/rfc7797">Sign</a>
+digital signature verification algorithm specified in <a href="https://tools.ietf.org/html/draft-ietf-cose-webauthn-algorithms-01#section-3.2">ES26K JOSE DRAFT</a>. If the result is a valid signature, return
 <code>true</code>, otherwise return <code>false</code>.
           </li>
         </ol>
@@ -311,18 +307,40 @@ A simple example:
       <pre class="example highlight">
 {
   "@context": "https://w3id.org/security/v2",
-  "dc:title": "Hello World!",
+  "http://schema.org/action": "AuthenticateMe",
   "proof": {
-    "created": "2019-01-16T20:13:10Z",
     "challenge": "abc",
+    "created": "2019-01-16T20:13:10Z",
     "domain": "example.com",
     "proofPurpose": "authentication",
     "verificationMethod": "https://example.com/i/alice/keys/2",
     "type": "EcdsaSecp256k1Signature2019",
-    "signatureValue": "WpQlDT-K5bSPQwFkEKszo0XE1esubvol3K6UMe_VZILFCCo9Lhc79Fc-YlJFAqLMamGrV0Hy0S-vzOXxeTpSlAA"
+    "jws": "eyJhbGciOiJFUzI1NksiLCJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdfQ..QgbRWT8w1LJet_KFofNfz_TVs27z4pwdPwUHhXYUaFlKicBQp6U1H5Kx-mST6uFvIyOqrYTJifDijZbtAfi0MA"
   }
-}     
+}
+           
       </pre>
+
+      <p>
+        An example using DIDs:
+              </p>
+        
+              <pre class="example highlight">
+        {
+          "@context": "https://w3id.org/security/v2",
+          "http://schema.org/action": "AuthenticateMe",
+          "proof": {
+            "challenge": "abc",
+            "created": "2019-01-16T20:13:10Z",
+            "domain": "example.com",
+            "proofPurpose": "authentication",
+            "verificationMethod": "did:example:123#kid=jpbImI2",
+            "type": "EcdsaSecp256k1Signature2019",
+            "jws": "eyJhbGciOiJFUzI1NksiLCJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdfQ..QgbRWT8w1LJet_KFofNfz_TVs27z4pwdPwUHhXYUaFlKicBQp6U1H5Kx-mST6uFvIyOqrYTJifDijZbtAfi0MA"
+          }
+        }
+                   
+              </pre>
     </section>
 
   </body>
