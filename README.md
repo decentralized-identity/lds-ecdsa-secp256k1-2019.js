@@ -2,14 +2,23 @@
 
 [![Build Status](https://travis-ci.org/decentralized-identity/lds-ecdsa-secp256k1-2019.js.svg?branch=master)](https://travis-ci.org/decentralized-identity/lds-ecdsa-secp256k1-2019.js) [![codecov](https://codecov.io/gh/decentralized-identity/lds-ecdsa-secp256k1-2019.js/branch/master/graph/badge.svg)](https://codecov.io/gh/decentralized-identity/lds-ecdsa-secp256k1-2019.js)
 
+🚧 This library is experimental / under development / not audited. Use at your own risk.
+
 - [Demo](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/demo)
 - [W3C Spec (WIP)](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/spec)
-- [EcdsaSecp256k1Signature2019 Documentation](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/lds-ecdsa-secp256k1-2019/)
-- [ES256K Documentation](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/es256k-jws-ts/)
+- [EcdsaSecp256k1Signature2019 Library Documentation](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/lds-ecdsa-secp256k1-2019/)
+- [ES256K Library Documentation](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/es256k-jws-ts/)
+
+This project relies on:
+
+- [secp256k1 typescript / wasm](https://github.com/bitauth/bitcoin-ts)
+- [ES256K Draft](https://tools.ietf.org/html/draft-ietf-cose-webauthn-algorithms-01)
 
 ## Usage
 
 ### Install
+
+_this package has not been published yet_
 
 ```
 npm i @transmute/lds-ecdsa-secp256k1-2019 --save

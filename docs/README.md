@@ -1,9 +1,9 @@
-# Documentation
+# [Documentation](https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js)
 
-#### [Demo](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/demo)
+#### [Demo](./demo)
 
-#### [Spec](https://identity.foundation/lds-ecdsa-secp256k1-2019.js/spec)
+#### [W3C Spec (WIP)](./spec)
 
-#### [ES256K JWS Docs](./es256k-jws-ts)
+#### [ES256K Library Documentation](./es256k-jws-ts)
 
-#### [EcdsaSecp256k1Signature2019 Docs](./lds-ecdsa-secp256k1-2019)
+#### [EcdsaSecp256k1Signature2019 Library Documentation](./lds-ecdsa-secp256k1-2019)
