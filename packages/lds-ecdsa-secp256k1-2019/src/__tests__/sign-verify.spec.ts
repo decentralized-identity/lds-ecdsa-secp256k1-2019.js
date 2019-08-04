@@ -37,6 +37,7 @@ describe('Sign & Verify', () => {
       action: 'AuthenticateMe',
     };
     const signed = await sign(doc, signatureOptions, privateJWK);
+
     expect(signed['@context']).toBe('https://w3id.org/security/v2');
     expect(signed['http://schema.org/action']).toBe('AuthenticateMe');
     expect(signed.proof.type).toBe('EcdsaSecp256k1Signature2019');

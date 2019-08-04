@@ -1,10 +1,10 @@
 {
   "name": "@transmute/lds-ecdsa-secp256k1-2019",
   "version": "0.0.0",
-  "description": "ES256K TypeScript WebAssembly JOSE JWS Implementation",
+  "description": "EcdsaSecp256k1Signature2019 JSON-LD Signature Suite",
   "keywords": [
-    "ES256K",
-    "JWS",
+    "JSON-LD",
+    "EcdsaSecp256k1Signature2019",
     "secp256k1",
     "JWS",
     "JOSE"
@@ -33,11 +33,12 @@
     "docs": "typedoc -p . --theme minimal --target 'es6' --tsconfig ./tsconfig.docs.json --exclude  'src/**/*.spec.ts,src/**/__fixtures__/*,**/node_modules/**' --out docs src/",
     "test": "jest -c ./config/jest.config.js",
     "test:watch": "npm t -- --watch",
-    "test:coverage": "npm t -- --coverage",
+    "coverage": "npm t -- --coverage",
     "test:ci": "npm t -- --ci",
     "validate-js": "tsc -p ./config && tsc -p ./scripts",
     "verify": "npm run validate-js && npm run style && npm run test:ci",
     "commit": "git-cz",
+    "codecov": "codecov",
     "style": "npm run format -- --list-different && npm run lint",
     "style:fix": "npm run format:fix && npm run lint:fix",
     "format": "prettier \"**/*.{ts,tsx,js,jsx,css,scss,sass,less,md}\"",

@@ -9,6 +9,10 @@ const config = {
     '<rootDir>/src/**/?(*.)+(spec|test).ts?(x)',
   ],
   testPathIgnorePatterns: ['dist'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/config',
+    '<rootDir>/src/__fixtures__',
+  ],
   coverageThreshold: {
     global: {
       branches: 80,

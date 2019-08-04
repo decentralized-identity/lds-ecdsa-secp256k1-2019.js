@@ -74,10 +74,13 @@ export const verifyDetached = async (
   payload: Buffer,
   publicKeyJWK: ISecp256k1PublicJWK
 ) => {
+  if (jws.indexOf('..') === -1) {
+    throw new JWSVerificationFailed('not a valid rfc7797 jws.');
+  }
   const [encodedHeader, encodedSignature] = jws.split('..');
   const header = JSON.parse(base64url.decode(encodedHeader));
   if (header.alg !== 'ES256K') {
-    throw new Error('JWS is not signed with ES256K.');
+    throw new Error('JWS alg is not signed with ES256K.');
   }
   if (
     header.b64 !== false ||
@@ -85,7 +88,7 @@ export const verifyDetached = async (
     !header.crit.length ||
     header.crit[0] !== 'b64'
   ) {
-    throw new Error('JWS is not in rfc7797 format (not detached).');
+    throw new Error('JWS Header is not in rfc7797 format (not detached).');
   }
   const publicKeyUInt8Array = await publicKeyUInt8ArrayFromJWK(publicKeyJWK);
   const secp256k1 = await instantiateSecp256k1();

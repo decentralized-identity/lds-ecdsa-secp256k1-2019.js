@@ -2,7 +2,13 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "docs": "./scripts/copy-docs.sh"
+    "clean": "lerna clean",
+    "bootstrap": "lerna bootstrap",
+    "postinstall": "lerna bootstrap",
+    "test": "lerna run test --stream",
+    "coverage": "lerna run coverage --stream",
+    "coverage:report": "lerna run codecov --stream",
+    "docs": "lerna run docs --stream && ./scripts/copy-docs.sh"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
