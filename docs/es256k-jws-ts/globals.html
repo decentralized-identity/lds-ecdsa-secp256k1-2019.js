@@ -2381,6 +2381,31 @@ img {
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<div class="tsd-panel tsd-typography">
+			<a href="#es256k" id="es256k" style="color: inherit; text-decoration: none;">
+				<h1>ES256K</h1>
+			</a>
+			<p>This library is experimental / under development / not audited. Use at your own risk.</p>
+			<ul>
+				<li><a href="https://github.com/bitauth/bitcoin-ts">secp256k1 wasm implementation</a></li>
+				<li><a href="https://tools.ietf.org/html/draft-ietf-cose-webauthn-algorithms-01">ES256K Draft</a></li>
+			</ul>
+			<a href="#development" id="development" style="color: inherit; text-decoration: none;">
+				<h2>Development</h2>
+			</a>
+			<p>See <a href="./package.json">package.json</a> for complete list.</p>
+			<p>Node 12 Coverage Tests are ignored due to an issue babel.</p>
+			<pre><code>npm i
+npm <span class="hljs-keyword">run</span><span class="bash"> <span class="hljs-built_in">test</span></span>
+npm <span class="hljs-keyword">run</span><span class="bash"> build</span>
+npm <span class="hljs-keyword">run</span><span class="bash"> docs</span></code></pre>
+			<a href="#jws-gotcha39s" id="jws-gotcha39s" style="color: inherit; text-decoration: none;">
+				<h3>JWS Gotcha&#39;s</h3>
+			</a>
+			<ul>
+				<li><code>signDetached</code> relies on <a href="https://tools.ietf.org/html/rfc7797">rfc7797</a>, the signature is over the result of createVerify data, not an encoded payload! Its possible a non detached payload signature will be supported in the future.</li>
+			</ul>
+		</div>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">

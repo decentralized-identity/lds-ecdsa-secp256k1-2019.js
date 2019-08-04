@@ -2425,7 +2425,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/1d48864/packages/lds-ecdsa-secp256k1-2019/src/createVerifyData/index.ts#L25">createVerifyData/index.ts:25</a></li>
+								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/505f387/packages/lds-ecdsa-secp256k1-2019/src/createVerifyData/index.ts#L25">createVerifyData/index.ts:25</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2448,7 +2448,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/1d48864/packages/lds-ecdsa-secp256k1-2019/src/createVerifyData/index.ts#L14">createVerifyData/index.ts:14</a></li>
+								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/505f387/packages/lds-ecdsa-secp256k1-2019/src/createVerifyData/index.ts#L14">createVerifyData/index.ts:14</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2471,7 +2471,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/1d48864/packages/lds-ecdsa-secp256k1-2019/src/createVerifyData/index.ts#L4">createVerifyData/index.ts:4</a></li>
+								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/505f387/packages/lds-ecdsa-secp256k1-2019/src/createVerifyData/index.ts#L4">createVerifyData/index.ts:4</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2494,9 +2494,38 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/1d48864/packages/lds-ecdsa-secp256k1-2019/src/createVerifyData/index.ts#L31">createVerifyData/index.ts:31</a></li>
+								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/505f387/packages/lds-ecdsa-secp256k1-2019/src/createVerifyData/index.ts#L60">createVerifyData/index.ts:60</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Example</p>
+								<p>```ts
+									const signatureOptions = {
+									challenge: &#39;abc&#39;,
+									created: &#39;2019-01-16T20:13:10Z&#39;,
+									domain: &#39;example.com&#39;,
+									proofPurpose: &#39;authentication&#39;,
+									verificationMethod: &#39;<a href="https://example.com/i/alice/keys/2&#39;">https://example.com/i/alice/keys/2&#39;</a>,
+									};
+									const doc = {
+									&#39;@context&#39;: &#39;<a href="https://w3id.org/identity/v1&#39;">https://w3id.org/identity/v1&#39;</a>,
+									title: &#39;Hello World!&#39;,
+								};</p>
+							</div>
+							<p>const verifyData = await createVerifyData(doc, signatureOptions);
+								expect(verifyData).toEqual({
+								framed: {
+								&#39;@context&#39;: &#39;<a href="https://w3id.org/security/v2&#39;">https://w3id.org/security/v2&#39;</a>,
+								&#39;dc:title&#39;: &#39;Hello World!&#39;,
+								},
+								verifyDataHexString:
+								&#39;16ec94c1612c48b916bae6002db32df122e8c20d0fee156778c630e51f0cb3cb9ac6f24c9632f44d7c5752c5eed022f226c8ddb535ad2420d8852c9798f89175&#39;,
+							});</p>
+							<pre><code>This functions takes a json-ld document and signature options,
+and produces the hex encoded data used by json-ld signature suite.
+See [<span class="hljs-string">create-verify-hash-algorithm</span>](<span class="hljs-link">https://w3c-dvcg.github.io/ld-signatures/#create-verify-hash-algorithm</span>)</code></pre>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
@@ -2520,7 +2549,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/1d48864/packages/lds-ecdsa-secp256k1-2019/src/createVerifyData/index.ts#L8">createVerifyData/index.ts:8</a></li>
+								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/505f387/packages/lds-ecdsa-secp256k1-2019/src/createVerifyData/index.ts#L8">createVerifyData/index.ts:8</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>

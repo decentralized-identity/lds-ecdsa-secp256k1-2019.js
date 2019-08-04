@@ -5,6 +5,7 @@
     "clean": "lerna clean",
     "bootstrap": "lerna bootstrap",
     "postinstall": "lerna bootstrap",
+    "build": "lerna run build --stream",
     "test": "lerna run test --stream",
     "coverage": "lerna run coverage --stream",
     "coverage:report": "lerna run codecov --stream",

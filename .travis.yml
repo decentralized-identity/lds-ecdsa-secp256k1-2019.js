@@ -6,6 +6,7 @@ install:
   - npm i
 
 script:
+  - npm run build
   - npm run coverage
   - npm run coverage:report
 

@@ -2382,21 +2382,35 @@ img {
 <div class="container container-main">
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
-			<a href="#references" id="references" style="color: inherit; text-decoration: none;">
-				<h3>References</h3>
+			<a href="#ecdsasecp256k1signature2019" id="ecdsasecp256k1signature2019" style="color: inherit; text-decoration: none;">
+				<h1>EcdsaSecp256k1Signature2019</h1>
 			</a>
+			<p>This library is experimental / under development / not audited. Use at your own risk.</p>
+			<ul>
+				<li><a href="https://github.com/bitauth/bitcoin-ts">secp256k1 wasm implementation</a></li>
+				<li><a href="https://tools.ietf.org/html/draft-ietf-cose-webauthn-algorithms-01">ES256K Draft</a></li>
+			</ul>
+			<a href="#development" id="development" style="color: inherit; text-decoration: none;">
+				<h2>Development</h2>
+			</a>
+			<p>See <a href="./package.json">package.json</a> for complete list.</p>
+			<pre><code>npm i
+npm <span class="hljs-keyword">run</span><span class="bash"> <span class="hljs-built_in">test</span></span>
+npm <span class="hljs-keyword">run</span><span class="bash"> build</span>
+npm <span class="hljs-keyword">run</span><span class="bash"> docs</span></code></pre>
 			<a href="#jws-gotcha39s" id="jws-gotcha39s" style="color: inherit; text-decoration: none;">
 				<h3>JWS Gotcha&#39;s</h3>
 			</a>
 			<ul>
-				<li><p>Header relies on <a href="https://tools.ietf.org/html/rfc7797">rfc7797</a>, the signature is over the result of createVerify data, not an encoded payload! Its possible a non detached payload signature will be supported in the future.</p>
-				</li>
-				<li><p><a href="https://github.com/transmute-industries/RsaSignature2017">RsaSignature2017</a></p>
-				</li>
-				<li><p><a href="https://github.com/transmute-industries/EcdsaKoblitzSignature2016">EcdsaKoblitzSignature2016</a></p>
-				</li>
-				<li><p><a href="https://github.com/transmute-industries/Ed25519Signature2018">Ed25519Signature2018</a></p>
-				</li>
+				<li>Header relies on <a href="https://tools.ietf.org/html/rfc7797">rfc7797</a>, the signature is over the result of createVerify data, not an encoded payload! Its possible a non detached payload signature will be supported in the future.</li>
+			</ul>
+			<a href="#references" id="references" style="color: inherit; text-decoration: none;">
+				<h3>References</h3>
+			</a>
+			<ul>
+				<li><a href="https://github.com/transmute-industries/RsaSignature2017">RsaSignature2017</a></li>
+				<li><a href="https://github.com/transmute-industries/EcdsaKoblitzSignature2016">EcdsaKoblitzSignature2016</a></li>
+				<li><a href="https://github.com/transmute-industries/Ed25519Signature2018">Ed25519Signature2018</a></li>
 			</ul>
 		</div>
 		<section class="tsd-panel-group tsd-index-group">
