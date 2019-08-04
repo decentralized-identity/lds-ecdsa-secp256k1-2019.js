@@ -120,7 +120,6 @@
     "rollup-plugin-terser": "5.1.1",
     "rollup-plugin-uglify": "6.0.2",
     "shx": "0.3.2",
-    "standard-version": "4.4.0",
     "ts-jest": "23.10.5",
     "tslib": "1.9.3",
     "tslint": "5.12.0",

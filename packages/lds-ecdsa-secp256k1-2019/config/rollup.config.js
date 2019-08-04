@@ -46,7 +46,7 @@ const PATHS = {
  */
 const external = Object.keys(pkg.peerDependencies) || [];
 
-// external.push('crypto')
+external.push('crypto');
 // external.push('bitcoin-ts')
 
 /**
@@ -90,6 +90,17 @@ const CommonConfig = {
  */
 const UMDconfig = {
   ...CommonConfig,
+  onwarn: function(warning) {
+    // Skip certain warnings
+    // should intercept ... but doesn't in some rollup versions
+    // @ts-ignore
+    if (warning.code === 'THIS_IS_UNDEFINED') {
+      return;
+    }
+    // console.warn everything else
+    // @ts-ignore
+    console.warn(warning.message);
+  },
   input: resolve(PATHS.entry.esm5, 'index.js'),
   output: {
     file: getOutputFileName(
@@ -99,6 +110,12 @@ const UMDconfig = {
     format: 'umd',
     name: LIB_NAME,
     sourcemap: true,
+    globals: {
+      tslib: 'tslib',
+      crypto: 'crypto',
+      jsonld: 'jsonld',
+      '@transmute/es256k-jws-ts': 'es256kJwsTs',
+    },
   },
   plugins: removeEmpty(
     /** @type {Plugin[]} */ ([...plugins, ifProduction(uglify())])

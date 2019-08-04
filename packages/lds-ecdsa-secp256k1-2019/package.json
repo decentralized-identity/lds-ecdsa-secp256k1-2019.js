@@ -9,10 +9,10 @@
     "JWS",
     "JOSE"
   ],
-  "main": "./bundles/index.umd.js",
-  "module": "./esm5/index.js",
-  "es2015": "./esm2015/index.js",
-  "typings": "./types/index.d.ts",
+  "main": "./dist/bundles/index.umd.js",
+  "module": "./dist/esm5/index.js",
+  "es2015": "./dist/esm2015/index.js",
+  "typings": "./dist/types/index.d.ts",
   "sideEffects": false,
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "cleanup": "shx rm -rf dist",
     "prebuild": "npm run cleanup && npm run verify",
     "build": "tsc --project ./tsconfig.build.json && tsc --project ./tsconfig.build.json --target es2018 --outDir dist/esm2015 && rollup -c config/rollup.config.js && rollup -c config/rollup.config.js --environment NODE_ENV:production && node scripts/build",
-    "postbuild": "node scripts/copy && npm run size",
+    "postbuild": "npm run size",
     "docs": "typedoc -p . --theme minimal --target 'es6' --tsconfig ./tsconfig.docs.json --exclude  'src/**/*.spec.ts,src/**/__fixtures__/*,**/node_modules/**' --out docs src/",
     "test": "jest -c ./config/jest.config.js",
     "test:watch": "npm t -- --watch",
@@ -44,12 +44,7 @@
     "format:fix": "npm run format -- --write",
     "lint": "tslint --project tsconfig.json --format codeFrame",
     "lint:fix": "npm run lint -- --fix",
-    "prerelease": "npm run build",
-    "release": "standard-version",
-    "postrelease": "node scripts/copy && node scripts/build && npm run release:github && npm run release:npm",
-    "release:github": "git push --no-verify --follow-tags origin master",
-    "release:npm": "npm publish dist",
-    "release:preflight": "npm pack ./dist --dry-run",
+    "package:preview": "npm pack --dry-run",
     "size": "node scripts/file-size ./dist/bundles/index.umd.min.js ./dist/bundles/index.esm.min.js"
   },
   "config": {
@@ -75,7 +70,9 @@
     ]
   },
   "peerDependencies": {
-    "tslib": ">=1.9.0"
+    "tslib": ">=1.9.0",
+    "jsonld": "1.6.2",
+    "@transmute/es256k-jws-ts": "0.0.0"
   },
   "dependencies": {
     "jsonld": "1.6.2",
@@ -111,7 +108,6 @@
     "rollup-plugin-terser": "3.0.0",
     "rollup-plugin-uglify": "6.0.0",
     "shx": "0.3.2",
-    "standard-version": "4.4.0",
     "ts-jest": "23.10.5",
     "tslib": "1.9.3",
     "tslint": "5.12.0",
