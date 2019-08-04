@@ -57,7 +57,7 @@ const signedDocument = await sign(doc, signatureOptions, privateKey);
 ### Verify
 
 ```ts
-import { sign } from `@transmute/lds-ecdsa-secp256k1-2019`;
+import { verify } from `@transmute/lds-ecdsa-secp256k1-2019`;
 const signedDocument = {
   '@context': 'https://w3id.org/security/v2',
   'http://schema.org/action': 'AuthenticateMe',
@@ -79,7 +79,7 @@ const publicKey = {
   x: 'dWCvM4fTdeM0KmloF57zxtBPXTOythHPMm1HCLrdd3A',
   y: '36uMVGM7hnw-N6GnjFcihWE3SkrhMLzzLCdPMXPEXlA',
 };
-const verified = await sign(signedDocument, publicKey);
+const verified = await verify(signedDocument, publicKey);
 // expect: verified === true
 ```
 
