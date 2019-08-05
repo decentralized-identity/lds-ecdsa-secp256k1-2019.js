@@ -104,11 +104,10 @@ NPM_CONFIG_OTP="" npm run release
 
 ## Releases
 
-1. Prepare the release
-
 ```
-npm run version:prerelease
-prep:release
-git add
-
+lerna version --conventional-prerelease
+lerna run build --stream
+lerna run docs --stream && ./scripts/copy-docs.sh
+lerna run package:preview --stream
+NPM_CONFIG_OTP="" lerna publish
 ```
