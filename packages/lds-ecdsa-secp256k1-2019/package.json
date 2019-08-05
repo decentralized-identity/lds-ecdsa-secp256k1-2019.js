@@ -1,6 +1,6 @@
 {
   "name": "@transmute/lds-ecdsa-secp256k1-2019",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "EcdsaSecp256k1Signature2019 JSON-LD Signature Suite",
   "keywords": [
     "JSON-LD",
@@ -77,7 +77,7 @@
     "tslib": ">=1.9.0"
   },
   "dependencies": {
-    "@transmute/es256k-jws-ts": "^0.0.2",
+    "@transmute/es256k-jws-ts": "^0.0.3",
     "jsonld": "1.6.2"
   },
   "devDependencies": {
