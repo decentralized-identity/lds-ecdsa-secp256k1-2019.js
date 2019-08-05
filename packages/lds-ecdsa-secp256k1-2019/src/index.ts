@@ -4,8 +4,7 @@ import { JWS } from '@transmute/es256k-jws-ts';
 
 /**
  * Example
- *
- * ```js
+ * ```ts
  * const privateJWK = {
  *  crv: 'secp256k1',
  *  d: 'rhYFsBPF9q3-uZThy7B3c4LDF_8wnozFUAEm5LLC4Zw',
@@ -58,8 +57,7 @@ export const sign = async (
 
 /**
  * Example
- *
- * ```js
+ * ```ts
  * const publicJWK = {
  *   crv: 'secp256k1',
  *   kid: 'JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw',
@@ -88,12 +86,11 @@ export const sign = async (
  * returns true if the document was signed by the public key, false otherwise.
  */
 export const verify = async (payload: any, publicKeyJwk: any) => {
-  const { framed, verifyDataHexString } = await createVerifyData(
+  const { verifyDataHexString } = await createVerifyData(
     payload,
     payload.proof
   );
   const verifyDataBuffer = Buffer.from(verifyDataHexString, 'hex') as any;
-
   return JWS.verifyDetached(payload.proof.jws, verifyDataBuffer, publicKeyJwk);
 };
 
