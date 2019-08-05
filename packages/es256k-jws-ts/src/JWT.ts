@@ -11,6 +11,7 @@ class JWTVerificationFailed extends Error {
   }
 }
 
+/** return a JWT singed with ES256K JWS */
 export const sign = async (
   payload: any,
   privateKeyJWK: ISecp256k1PrivateKeyJWK
@@ -33,6 +34,7 @@ export const sign = async (
   );
 };
 
+/** verify a JWT singed with ES256K JWS */
 export const verify = async (
   jwt: string,
   publicKeyJWK: ISecp256k1PublicJWK
