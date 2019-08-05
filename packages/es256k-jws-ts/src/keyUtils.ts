@@ -81,7 +81,6 @@ export const privateJWKFromPrivateKeyHex = async (privateKeyHex: string) => {
     crv: 'secp256k1',
   };
   const kid = getKid(jwk);
-
   return {
     ...jwk,
     kid,

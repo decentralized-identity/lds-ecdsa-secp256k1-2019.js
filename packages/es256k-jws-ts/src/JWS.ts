@@ -11,6 +11,7 @@ import {
   publicKeyUInt8ArrayFromJWK,
 } from './keyUtils';
 
+/** error matching @panva/jose for JWS verification failure. */
 class JWSVerificationFailed extends Error {
   constructor(message: string) {
     super(message);
@@ -119,6 +120,7 @@ export const verifyDetached = async (
   throw new Error('Cannot verify detached signature.');
 };
 
+/** Produce a normal ES256K JWS */
 export const sign = async (
   payload: any,
   privateKeyJWK: ISecp256k1PrivateKeyJWK,
@@ -147,6 +149,7 @@ export const sign = async (
   return `${encodedHeader}.${encodedPayload}.${encodedSignature}`;
 };
 
+/** Verify an ES256K JWS, returns the decoded object if successful, throws otherwise. */
 export const verify = async (
   jws: string,
   publicKeyJWK: ISecp256k1PublicJWK
@@ -180,6 +183,7 @@ export const verify = async (
   throw new JWSVerificationFailed('signature verification failed');
 };
 
+/** decode a JWS (without verifying it) */
 export const decode = (jws: string, options = { complete: false }) => {
   const [encodedHeader, encodedPayload, encodedSignature] = jws.split('.');
 

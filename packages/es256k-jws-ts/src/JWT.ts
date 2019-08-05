@@ -2,6 +2,7 @@ import JWS from './JWS';
 
 import { ISecp256k1PrivateKeyJWK, ISecp256k1PublicJWK } from './keyUtils';
 
+/** default expiration in hours added automatically */
 const defaultExpiresInHours = 1;
 
 class JWTVerificationFailed extends Error {
