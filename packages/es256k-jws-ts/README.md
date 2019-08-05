@@ -18,6 +18,6 @@ npm run build
 npm run docs
 ```
 
-### JWS Gotcha's
+### JWS - JSON-LD Signature Details
 
-- `signDetached` relies on [rfc7797](https://tools.ietf.org/html/rfc7797), the signature is over the result of createVerify data, not an encoded payload! Its possible a non detached payload signature will be supported in the future.
+- `signDetached` relies on [rfc7797](https://tools.ietf.org/html/rfc7797), the signature is over the result of createVerify data, not an encoded payload! This makes more sense when you consider that JSON-LD Signatures have a signature property, it would be redunant for that signature to include a base64url encoded copy of the object.

@@ -2399,11 +2399,11 @@ img {
 npm <span class="hljs-keyword">run</span><span class="bash"> <span class="hljs-built_in">test</span></span>
 npm <span class="hljs-keyword">run</span><span class="bash"> build</span>
 npm <span class="hljs-keyword">run</span><span class="bash"> docs</span></code></pre>
-			<a href="#jws-gotcha39s" id="jws-gotcha39s" style="color: inherit; text-decoration: none;">
-				<h3>JWS Gotcha&#39;s</h3>
+			<a href="#jws---json-ld-signature-details" id="jws---json-ld-signature-details" style="color: inherit; text-decoration: none;">
+				<h3>JWS - JSON-LD Signature Details</h3>
 			</a>
 			<ul>
-				<li><code>signDetached</code> relies on <a href="https://tools.ietf.org/html/rfc7797">rfc7797</a>, the signature is over the result of createVerify data, not an encoded payload! Its possible a non detached payload signature will be supported in the future.</li>
+				<li><code>signDetached</code> relies on <a href="https://tools.ietf.org/html/rfc7797">rfc7797</a>, the signature is over the result of createVerify data, not an encoded payload! This makes more sense when you consider that JSON-LD Signatures have a signature property, it would be redunant for that signature to include a base64url encoded copy of the object.</li>
 			</ul>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>

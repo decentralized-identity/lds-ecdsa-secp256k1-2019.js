@@ -99,4 +99,5 @@ npm run build
 npm run test
 npm run coverage
 npm run docs
+NPM_CONFIG_OTP="" npm run release
 ```
