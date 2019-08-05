@@ -1,6 +1,6 @@
 {
   "name": "@transmute/es256k-jws-ts",
-  "version": "0.0.0",
+  "version": "0.0.1-0.0.0-alpha.0.0",
   "description": "TypeScript Web Assembly Secp256k1 ES256K JWS and JWT.",
   "keywords": [
     "JWS",
@@ -70,12 +70,12 @@
     ]
   },
   "peerDependencies": {
-    "tslib": ">=1.9.0",
-    "bitcoin-ts": "1.4.0",
-    "@types/webassembly-js-api": "^0.0.2",
     "@trust/keyto": "0.3.7",
+    "@types/webassembly-js-api": "^0.0.2",
     "base64url": "3.0.1",
-    "json-stringify-deterministic": "1.0.1"
+    "bitcoin-ts": "1.4.0",
+    "json-stringify-deterministic": "1.0.1",
+    "tslib": ">=1.9.0"
   },
   "dependencies": {
     "@trust/keyto": "0.3.7",
