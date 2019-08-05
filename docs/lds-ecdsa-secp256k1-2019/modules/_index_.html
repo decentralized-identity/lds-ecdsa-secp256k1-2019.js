@@ -2413,36 +2413,37 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/b0ebcde/packages/lds-ecdsa-secp256k1-2019/src/index.ts#L35">index.ts:35</a></li>
+								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/b0d1377/packages/lds-ecdsa-secp256k1-2019/src/index.ts#L34">index.ts:34</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
 								<p>Example</p>
+								<p>```ts
+									const privateJWK = {
+									crv: &#39;secp256k1&#39;,
+									d: &#39;rhYFsBPF9q3-uZThy7B3c4LDF_8wnozFUAEm5LLC4Zw&#39;,
+									kid: &#39;JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw&#39;,
+									kty: &#39;EC&#39;,
+									x: &#39;dWCvM4fTdeM0KmloF57zxtBPXTOythHPMm1HCLrdd3A&#39;,
+									y: &#39;36uMVGM7hnw-N6GnjFcihWE3SkrhMLzzLCdPMXPEXlA&#39;,
+									};
+									const signatureOptions = {
+									challenge: &#39;abc&#39;,
+									created: &#39;2019-01-16T20:13:10Z&#39;,
+									domain: &#39;example.com&#39;,
+									proofPurpose: &#39;authentication&#39;,
+									verificationMethod: &#39;<a href="https://example.com/i/alice/keys/2&#39;">https://example.com/i/alice/keys/2&#39;</a>,
+									};
+									const doc = {
+									&#39;@context&#39;: &#39;<a href="https://w3id.org/identity/v1&#39;">https://w3id.org/identity/v1&#39;</a>,
+									title: &#39;Hello World!&#39;,
+								};</p>
 							</div>
-							<pre><code class="language-js"><span class="hljs-keyword">const</span> privateJWK = {
- <span class="hljs-attr">crv</span>: <span class="hljs-string">'secp256k1'</span>,
- <span class="hljs-attr">d</span>: <span class="hljs-string">'rhYFsBPF9q3-uZThy7B3c4LDF_8wnozFUAEm5LLC4Zw'</span>,
- <span class="hljs-attr">kid</span>: <span class="hljs-string">'JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw'</span>,
- <span class="hljs-attr">kty</span>: <span class="hljs-string">'EC'</span>,
- <span class="hljs-attr">x</span>: <span class="hljs-string">'dWCvM4fTdeM0KmloF57zxtBPXTOythHPMm1HCLrdd3A'</span>,
- <span class="hljs-attr">y</span>: <span class="hljs-string">'36uMVGM7hnw-N6GnjFcihWE3SkrhMLzzLCdPMXPEXlA'</span>,
-};
-<span class="hljs-keyword">const</span> signatureOptions = {
-   <span class="hljs-attr">challenge</span>: <span class="hljs-string">'abc'</span>,
-   <span class="hljs-attr">created</span>: <span class="hljs-string">'2019-01-16T20:13:10Z'</span>,
-   <span class="hljs-attr">domain</span>: <span class="hljs-string">'example.com'</span>,
-   <span class="hljs-attr">proofPurpose</span>: <span class="hljs-string">'authentication'</span>,
-   <span class="hljs-attr">verificationMethod</span>: <span class="hljs-string">'https://example.com/i/alice/keys/2'</span>,
-};
-<span class="hljs-keyword">const</span> doc = {
-   <span class="hljs-string">'@context'</span>: <span class="hljs-string">'https://w3id.org/identity/v1'</span>,
-   <span class="hljs-attr">title</span>: <span class="hljs-string">'Hello World!'</span>,
-};
-
-<span class="hljs-keyword">const</span> signed = <span class="hljs-keyword">await</span> sign(doc, signatureOptions, privateJWK);</code></pre>
-							<p>This functions takes a json-ld document, signature options,
-							and a JWK private key, and returns the document with a proof attribute.</p>
+							<p>const signed = await sign(doc, signatureOptions, privateJWK);</p>
+							<pre><code>
+This functions takes <span class="hljs-keyword">a</span> json-ld document, signature options,
+<span class="hljs-keyword">and</span> <span class="hljs-keyword">a</span> JWK <span class="hljs-keyword">private</span> key, <span class="hljs-keyword">and</span> returns <span class="hljs-keyword">the</span> document <span class="hljs-keyword">with</span> <span class="hljs-keyword">a</span> proof attribute.</code></pre>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
@@ -2470,37 +2471,38 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/b0ebcde/packages/lds-ecdsa-secp256k1-2019/src/index.ts#L90">index.ts:90</a></li>
+								<li>Defined in <a href="https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/blob/b0d1377/packages/lds-ecdsa-secp256k1-2019/src/index.ts#L88">index.ts:88</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
 								<p>Example</p>
+								<p>```ts
+									const publicJWK = {
+									crv: &#39;secp256k1&#39;,
+									kid: &#39;JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw&#39;,
+									kty: &#39;EC&#39;,
+									x: &#39;dWCvM4fTdeM0KmloF57zxtBPXTOythHPMm1HCLrdd3A&#39;,
+									y: &#39;36uMVGM7hnw-N6GnjFcihWE3SkrhMLzzLCdPMXPEXlA&#39;,
+									};
+									const signed = {
+									&#39;@context&#39;: &#39;<a href="https://w3id.org/security/v2&#39;">https://w3id.org/security/v2&#39;</a>,
+									&#39;<a href="http://schema.org/action&#39;">http://schema.org/action&#39;</a>: &#39;AuthenticateMe&#39;,
+									proof: {
+									challenge: &#39;abc&#39;,
+									created: &#39;2019-01-16T20:13:10Z&#39;,
+									domain: &#39;example.com&#39;,
+									proofPurpose: &#39;authentication&#39;,
+									verificationMethod: &#39;<a href="https://example.com/i/alice/keys/2&#39;">https://example.com/i/alice/keys/2&#39;</a>,
+									type: &#39;EcdsaSecp256k1Signature2019&#39;,
+									jws: &#39;eyJhbGciOiJFUzI1NksiLCJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdfQ..QgbRWT8w1LJet_KFofNfz_TVs27z4pwdPwUHhXYUaFlKicBQp6U1H5Kx-mST6uFvIyOqrYTJifDijZbtAfi0MA&#39;
+									}
+								}</p>
 							</div>
-							<pre><code class="language-js"><span class="hljs-keyword">const</span> publicJWK = {
-  <span class="hljs-attr">crv</span>: <span class="hljs-string">'secp256k1'</span>,
-  <span class="hljs-attr">kid</span>: <span class="hljs-string">'JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw'</span>,
-  <span class="hljs-attr">kty</span>: <span class="hljs-string">'EC'</span>,
-  <span class="hljs-attr">x</span>: <span class="hljs-string">'dWCvM4fTdeM0KmloF57zxtBPXTOythHPMm1HCLrdd3A'</span>,
-  <span class="hljs-attr">y</span>: <span class="hljs-string">'36uMVGM7hnw-N6GnjFcihWE3SkrhMLzzLCdPMXPEXlA'</span>,
-};
-<span class="hljs-keyword">const</span> signed = {
-  <span class="hljs-string">'@context'</span>: <span class="hljs-string">'https://w3id.org/security/v2'</span>,
-  <span class="hljs-string">'http://schema.org/action'</span>: <span class="hljs-string">'AuthenticateMe'</span>,
-  <span class="hljs-attr">proof</span>: {
-    <span class="hljs-attr">challenge</span>: <span class="hljs-string">'abc'</span>,
-    <span class="hljs-attr">created</span>: <span class="hljs-string">'2019-01-16T20:13:10Z'</span>,
-    <span class="hljs-attr">domain</span>: <span class="hljs-string">'example.com'</span>,
-    <span class="hljs-attr">proofPurpose</span>: <span class="hljs-string">'authentication'</span>,
-    <span class="hljs-attr">verificationMethod</span>: <span class="hljs-string">'https://example.com/i/alice/keys/2'</span>,
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'EcdsaSecp256k1Signature2019'</span>,
-    <span class="hljs-attr">jws</span>: <span class="hljs-string">'eyJhbGciOiJFUzI1NksiLCJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdfQ..QgbRWT8w1LJet_KFofNfz_TVs27z4pwdPwUHhXYUaFlKicBQp6U1H5Kx-mST6uFvIyOqrYTJifDijZbtAfi0MA'</span>
-  }
-}
-
-<span class="hljs-keyword">const</span> verified = <span class="hljs-keyword">await</span> verify(signed, publicJWK);</code></pre>
-							<p>This functions takes a signed json-ld document, and JWK public key and
-							returns true if the document was signed by the public key, false otherwise.</p>
+							<p>const verified = await verify(signed, publicJWK);</p>
+							<pre><code>
+This <span class="hljs-keyword">functions</span> takes a signed <span class="hljs-type">json</span>-ld document, <span class="hljs-keyword">and</span> JWK <span class="hljs-built_in">public</span> key <span class="hljs-keyword">and</span>
+<span class="hljs-keyword">returns</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">if</span> the document was signed <span class="hljs-keyword">by</span> the <span class="hljs-built_in">public</span> key, <span class="hljs-keyword">false</span> otherwise.</code></pre>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
