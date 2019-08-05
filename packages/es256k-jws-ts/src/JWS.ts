@@ -29,6 +29,7 @@ export interface IJWSHeader {
   kid?: string;
 }
 
+/** Produce a JWS Unencoded Payload per https://tools.ietf.org/html/rfc7797#section-6 */
 export const signDetached = async (
   // in the case of EcdsaSecp256k1Signature2019 this is the result of createVerifyData
   payload: Buffer,
@@ -69,6 +70,7 @@ export const signDetached = async (
   return `${encodedHeader}..${encodedSignature}`;
 };
 
+/** Verify a JWS Unencoded Payload per https://tools.ietf.org/html/rfc7797#section-6 */
 export const verifyDetached = async (
   jws: string,
   payload: Buffer,
