@@ -18,8 +18,6 @@ This project relies on:
 
 ### Install
 
-_this package has not been published yet_
-
 ```
 npm i @transmute/lds-ecdsa-secp256k1-2019 --save
 ```
