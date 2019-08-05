@@ -109,5 +109,6 @@ lerna run build --stream
 lerna run docs --stream && ./scripts/copy-docs.sh
 git add docs/ && git commit -m "chore(docs): update docs"
 lerna version --conventional-prerelease
+lerna version --conventional-graduate
 NPM_CONFIG_OTP="" lerna publish
 ```
