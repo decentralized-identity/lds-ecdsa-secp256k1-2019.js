@@ -46,6 +46,7 @@
     "lint": "tslint --project tsconfig.json --format codeFrame",
     "lint:fix": "npm run lint -- --fix",
     "package:preview": "npm pack --dry-run",
+    "release": "npm publish",
     "size": "node scripts/file-size ./dist/bundles/index.umd.min.js ./dist/bundles/index.esm.min.js"
   },
   "config": {
