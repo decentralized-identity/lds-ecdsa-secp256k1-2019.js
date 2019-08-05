@@ -105,9 +105,9 @@ NPM_CONFIG_OTP="" npm run release
 ## Releases
 
 ```
-lerna version --conventional-prerelease
 lerna run build --stream
 lerna run docs --stream && ./scripts/copy-docs.sh
-lerna run package:preview --stream
+git add docs/ && git commit -m "chore(docs): update docs"
+lerna version --conventional-prerelease
 NPM_CONFIG_OTP="" lerna publish
 ```
