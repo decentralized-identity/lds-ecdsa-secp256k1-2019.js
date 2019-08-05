@@ -16,6 +16,8 @@ npm run build
 npm run docs
 ```
 
+For releases, see the root README.
+
 ### JWS Gotcha's
 
 - Header relies on [rfc7797](https://tools.ietf.org/html/rfc7797), the signature is over the result of createVerify data, not an encoded payload! Its possible a non detached payload signature will be supported in the future.

@@ -9,10 +9,9 @@
     "test": "lerna run test --stream",
     "coverage": "lerna run coverage --stream",
     "coverage:report": "lerna run codecov --stream",
-    "docs": "lerna run docs --stream && ./scripts/copy-docs.sh",
-    "prep:release": "npm run build && npm run docs && lerna run package:preview --stream",
-    "release": "lerna publish",
-    "version:prerelease": "lerna version --conventional-prerelease"
+    "docs": "lerna run docs --stream && ./scripts/copy-docs.sh && git add docs/ && git commit -m 'chore(docs): update docs'",
+    "prerelease": "npm run build && npm run docs",
+    "release": "lerna publish"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
