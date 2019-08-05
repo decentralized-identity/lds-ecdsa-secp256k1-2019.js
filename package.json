@@ -11,7 +11,7 @@
     "coverage:report": "lerna run codecov --stream",
     "docs": "lerna run docs --stream && ./scripts/copy-docs.sh",
     "prep:release": "npm run build && npm run docs && lerna run package:preview --stream",
-    "release": "lerna run publish",
+    "release": "lerna publish",
     "version:prerelease": "lerna version --conventional-prerelease"
   },
   "devDependencies": {

@@ -101,3 +101,14 @@ npm run coverage
 npm run docs
 NPM_CONFIG_OTP="" npm run release
 ```
+
+## Releases
+
+1. Prepare the release
+
+```
+npm run version:prerelease
+prep:release
+git add
+
+```
