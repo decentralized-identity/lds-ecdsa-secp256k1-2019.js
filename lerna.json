@@ -1,14 +1,21 @@
 {
   "command": {
     "publish": {
-      "ignoreChanges": ["ignored-file", "*.md"],
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md"
+      ],
       "message": "chore(release): publish"
     },
     "bootstrap": {
       "ignore": "component-*",
-      "npmClientArgs": ["--no-package-lock"]
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
     }
   },
-  "packages": ["packages/*"],
-  "version": "0.0.1-0.0.0-alpha.0.0"
+  "packages": [
+    "packages/*"
+  ],
+  "version": "0.0.1"
 }
