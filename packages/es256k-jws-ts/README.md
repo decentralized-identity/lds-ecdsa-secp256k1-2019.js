@@ -5,6 +5,12 @@ This library is experimental / under development / not audited. Use at your own 
 - [secp256k1 wasm implementation](https://github.com/bitauth/bitcoin-ts)
 - [ES256K Draft](https://tools.ietf.org/html/draft-ietf-cose-webauthn-algorithms-01)
 
+## Install
+
+```
+npm i @transmute/es256k-jws-ts --save
+```
+
 ## Development
 
 See [package.json](./package.json) for complete list.

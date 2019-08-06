@@ -1,7 +1,7 @@
 import createVerifyData from '../createVerifyData';
 
 // because JSON-LD resolves urls over the web.
-jest.setTimeout(10 * 1000);
+jest.setTimeout(20 * 1000);
 
 describe('createVerifyData', () => {
   it('createVerifyData', async () => {

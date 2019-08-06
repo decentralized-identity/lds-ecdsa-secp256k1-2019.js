@@ -18,7 +18,7 @@ const publicJWK = {
 import { sign, verify } from '../index';
 
 // because of throttling of contexts hosted on the web.
-jest.setTimeout(10 * 1000);
+jest.setTimeout(20 * 1000);
 
 describe('Sign & Verify', () => {
   it('sign and verify detached jws with ES256K', async () => {
