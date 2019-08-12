@@ -113,6 +113,7 @@ const UMDconfig = {
     globals: {
       tslib: 'tslib',
       crypto: 'crypto',
+      'node-fetch': 'fetch',
       jsonld: 'jsonld',
       '@transmute/es256k-jws-ts': 'es256kJwsTs',
     },
