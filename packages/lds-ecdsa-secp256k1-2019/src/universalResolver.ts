@@ -20,10 +20,14 @@ const normalizeDocument = (res: any) => {
 
 export default {
   resolve: async (didUri: string) => {
-    const res = await getJson(
-      'https://uniresolver.io/1.0/identifiers/' + didUri
-    );
-    const doc = await normalizeDocument(res);
-    return doc;
+    try {
+      const res = await getJson(
+        'https://uniresolver.io/1.0/identifiers/' + didUri
+      );
+      const doc = await normalizeDocument(res);
+      return doc;
+    } catch (e) {
+      throw new Error('Could not resolve: ' + didUri);
+    }
   },
 };

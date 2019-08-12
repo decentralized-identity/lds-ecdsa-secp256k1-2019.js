@@ -1,0 +1,13 @@
+{
+  "@context": "https://w3id.org/security/v2",
+  "http://schema.org/action": "AuthenticateMe",
+  "proof": {
+    "challenge": "abc",
+    "created": "2019-01-16T20:13:10Z",
+    "domain": "example.com",
+    "proofPurpose": "authentication",
+    "verificationMethod": "did:example:123#key-hex-JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw",
+    "type": "EcdsaSecp256k1Signature2019",
+    "jws": "eyJhbGciOiJFUzI1NksiLCJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdfQ..B2J1UWpHJ9L3W8MD5ytdcW1it4iv7dE5r8rYlsOG3EMj5pR7oLGFHosuFw-epqWJgu5649jMv4d5udzqt28m7g"
+  }
+}

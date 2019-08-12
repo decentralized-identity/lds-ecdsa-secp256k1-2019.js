@@ -1,9 +1,13 @@
 import dids from './dids';
 
 const resolver = {
-  resolve: (didUri: string) => {
+  resolve: async (didUri: string) => {
     const did = didUri.split('#')[0];
-    return dids[did] ? dids[did].document : null;
+
+    if (!dids[did]) {
+      throw new Error('Could not resolve: ' + didUri);
+    }
+    return dids[did].document;
   },
 };
 

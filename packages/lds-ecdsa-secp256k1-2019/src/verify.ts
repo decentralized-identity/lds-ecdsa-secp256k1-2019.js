@@ -61,10 +61,6 @@ const resolvePublicKey = async (
 export const verify = async (payload: any, options: any) => {
   let publicKeyJwk;
 
-  if (options.publicKeyJwk) {
-    publicKeyJwk = options.publicKeyJwk;
-  }
-
   const documentLoader = options.documentLoader || defaultDocumentLoader;
 
   publicKeyJwk = await resolvePublicKey(

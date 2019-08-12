@@ -50,4 +50,19 @@ describe('Sign & Verify With DIDs & Universal Resolver', () => {
     const verified = await verify(signed, options);
     expect(verified).toBe(true);
   });
+
+  it('should error when DID cannot be resolved', async () => {
+    expect.assertions(1);
+    const options = {
+      // will default to default DocumentLoader + Universal Resolver
+      // documentLoader: fixtures.documentLoader,
+    };
+    const badVc = { ...fixtures.documents.authMeSigned };
+    badVc.proof.verificationMethod = 'did:bad:123';
+    try {
+      await verify(badVc, options);
+    } catch (e) {
+      expect(e.message).toBe('Could not resolve: did:bad:123');
+    }
+  });
 });

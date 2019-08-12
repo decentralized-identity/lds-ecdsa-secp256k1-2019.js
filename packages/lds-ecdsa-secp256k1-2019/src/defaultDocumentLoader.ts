@@ -16,10 +16,13 @@ export default async (url: string, callback: any) => {
   // console.log(url);
   // are we handling a DID?
   if (url.indexOf('did:') === 0) {
-    const doc = await resolver.resolve(url);
-    if (!doc) {
-      throw new Error('Could not resolve: ' + url);
+    let doc;
+    try {
+      doc = await resolver.resolve(url);
+    } catch (e) {
+      callback(e);
     }
+
     // TODO: add proper jsonld logic for iterating all possible DID URIs.
     // iterate public keys, find the correct id...
     for (const publicKey of doc.publicKey) {
