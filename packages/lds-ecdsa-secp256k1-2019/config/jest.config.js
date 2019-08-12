@@ -8,7 +8,7 @@ const config = {
     '<rootDir>/src/**/__tests__/**/*.ts?(x)',
     '<rootDir>/src/**/?(*.)+(spec|test).ts?(x)',
   ],
-  testPathIgnorePatterns: ['dist'],
+  testPathIgnorePatterns: ['dist', '<rootDir>/src/__tests__/__fixtures__'],
   coveragePathIgnorePatterns: [
     '<rootDir>/config',
     '<rootDir>/src/__fixtures__',
