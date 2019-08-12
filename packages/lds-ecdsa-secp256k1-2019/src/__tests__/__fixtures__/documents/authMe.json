@@ -1,0 +1,7 @@
+{
+  "@context": {
+    "action": "schema:action",
+    "schema": "http://schema.org/"
+  },
+  "action": "AuthenticateMe"
+}

@@ -2,6 +2,8 @@ import createVerifyData from './createVerifyData';
 
 import { JWS } from '@transmute/es256k-jws-ts';
 
+import defaultDocumentLoader from './defaultDocumentLoader';
+
 /**
  * Example
  * ```ts
@@ -34,13 +36,17 @@ import { JWS } from '@transmute/es256k-jws-ts';
 export const sign = async (
   payload: any,
   signatureOptions: any,
-  privateKeyJwk: any
+  privateKeyJwk: any,
+  options: any
 ) => {
-  const options = { ...signatureOptions, type: 'EcdsaSecp256k1Signature2019' };
+  const proof = { ...signatureOptions, type: 'EcdsaSecp256k1Signature2019' };
+
+  const documentLoader = options.documentLoader || defaultDocumentLoader;
 
   const { framed, verifyDataHexString } = await createVerifyData(
     payload,
-    options
+    proof,
+    documentLoader
   );
 
   const verifyDataBuffer = Buffer.from(verifyDataHexString, 'hex') as any;
@@ -48,7 +54,7 @@ export const sign = async (
   const documentWithProof = {
     ...framed,
     proof: {
-      ...options,
+      ...proof,
       jws,
     },
   };

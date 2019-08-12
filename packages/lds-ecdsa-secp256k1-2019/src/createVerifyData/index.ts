@@ -57,7 +57,11 @@ const cannonizeDocument = (doc: any) => {
  * and produces the hex encoded data used by json-ld signature suite.
  * See [create-verify-hash-algorithm](https://w3c-dvcg.github.io/ld-signatures/#create-verify-hash-algorithm)
  */
-const createVerifyData = async (data: any, signatureOptions: any) => {
+const createVerifyData = async (
+  data: any,
+  signatureOptions: any,
+  documentLoader: any
+) => {
   const options = { ...signatureOptions };
   if (options.creator) {
     options.verificationMethod = signatureOptions.creator;
@@ -69,7 +73,7 @@ const createVerifyData = async (data: any, signatureOptions: any) => {
     options.created = new Date().toISOString();
   }
 
-  const [expanded] = await jsonld.expand(data);
+  const [expanded] = await jsonld.expand(data, { documentLoader });
   const framed = await jsonld.compact(
     expanded,
     'https://w3id.org/security/v2',
