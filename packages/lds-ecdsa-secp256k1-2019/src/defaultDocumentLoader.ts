@@ -2,8 +2,10 @@ import jsonld from 'jsonld';
 import resolver from './universalResolver';
 
 const _nodejs =
+  // tslint:disable-next-line
   typeof process !== 'undefined' && process.versions && process.versions.node;
 const _browser =
+  // tslint:disable-next-line
   !_nodejs && (typeof window !== 'undefined' || typeof self !== 'undefined');
 
 const documentLoader = _browser
