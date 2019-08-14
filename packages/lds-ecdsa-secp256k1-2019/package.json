@@ -74,11 +74,13 @@
   "peerDependencies": {
     "@transmute/es256k-jws-ts": "0.0.0",
     "jsonld": "1.6.2",
-    "tslib": ">=1.9.0"
+    "tslib": ">=1.9.0",
+    "node-fetch": "2.6.0"
   },
   "dependencies": {
     "@transmute/es256k-jws-ts": "^0.0.4",
-    "jsonld": "1.6.2"
+    "jsonld": "1.6.2",
+    "node-fetch": "2.6.0"
   },
   "devDependencies": {
     "@commitlint/cli": "7.2.1",
@@ -86,6 +88,7 @@
     "@types/jest": "23.3.10",
     "@types/json5": "0.0.30",
     "@types/node": "8.10.*",
+    "@types/node-fetch": "2.5.0",
     "@types/prettier": "1.15.2",
     "@types/webpack-config-utils": "2.3.0",
     "brotli-size": "0.0.3",

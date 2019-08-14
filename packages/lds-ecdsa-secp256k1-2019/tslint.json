@@ -6,7 +6,7 @@
     "tslint-config-prettier"
   ],
   "linterOptions": {
-    "exclude": ["node_modules/**"]
+    "exclude": ["node_modules/**", "*.json", "**/*.json"]
   },
   "defaultSeverity": "error",
   "rules": {
