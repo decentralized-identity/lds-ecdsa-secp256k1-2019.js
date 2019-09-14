@@ -26,7 +26,8 @@ const signatureOptions = {
   created: '2019-01-16T20:13:10Z',
   domain: 'example.com',
   proofPurpose: 'authentication',
-  verificationMethod: 'https://example.com/i/alice/keys/2',
+  verificationMethod:
+    'did:btcr:xxcl-lzpq-q83a-0d5#key-JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw',
 };
 const doc = {
   '@context': {
@@ -53,15 +54,17 @@ class App extends React.Component {
       verified,
     });
 
+    const options = {};
     const ldSig = await EcsdaSecp256k1Signature2019.sign(
       doc,
       signatureOptions,
-      privateJWK
+      privateJWK,
+      options
     );
 
     const lsSigVerified = await EcsdaSecp256k1Signature2019.verify(
       ldSig,
-      publicJWK
+      options
     );
 
     this.setState({
