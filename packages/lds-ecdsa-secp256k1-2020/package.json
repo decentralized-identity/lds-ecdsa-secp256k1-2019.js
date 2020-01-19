@@ -1,0 +1,38 @@
+{
+  "name": "@transmute/lds-ecdsa-secp256k1-2020",
+  "version": "1.0.0",
+  "description": "Linked Data Signatures for JOSE",
+  "homepage": "https://did-key.web.app/",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "docs": "jsdoc -c ./jsdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/transmute-industries/lds-jose2020.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/transmute-industries/lds-jose2020/issues"
+  },
+  "dependencies": {
+    "@panva/jose": "^1.9.2",
+    "base64url": "^3.0.1",
+    "crypto-ld": "^3.7.0",
+    "did-method-key": "^0.2.0",
+    "jose": "^1.17.1",
+    "jsonld": "^1.8.0",
+    "jsonld-signatures": "^4.4.0"
+  },
+  "devDependencies": {
+    "@trust/keyto": "^0.3.7",
+    "base-x": "^3.0.7",
+    "docdash": "^1.1.1",
+    "jest": "^24.9.0",
+    "jsdoc": "^3.6.3",
+    "node-forge": "^0.9.1"
+  }
+}

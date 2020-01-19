@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "crv": "secp256k1",
+      "x": "4xAbUxbGGFPv4qpHlPFAUJdzteUGR1lRK-CELCufU9w",
+      "y": "EYcgCTsff1qtZjI9_ckZTXDSKAIuM0BknrKgo0BZ_Is",
+      "d": "JCvMpuoQ4CJ_-1mSFtG6gIeqXoS-9joKOon1_DmP6JY",
+      "kty": "EC",
+      "kid": "WqzaOweASs78whhl_YvCEvj1nd89IycryVlmZMefcjU"
+    }
+  ]
+}
