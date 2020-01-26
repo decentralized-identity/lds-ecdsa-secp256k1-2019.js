@@ -128,5 +128,6 @@
     "typescript-tslint-plugin": "0.2.1",
     "uglify-es": "3.3.9",
     "webpack-config-utils": "2.3.1"
-  }
+  },
+  "gitHead": "68884a67ee46b90c66c1d63c90334d1b9de18ea7"
 }
