@@ -4,7 +4,7 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import json from 'rollup-plugin-json';
 import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
-import { uglify } from 'rollup-plugin-uglify';
+import { minify } from 'uglify-es';
 import { terser } from 'rollup-plugin-terser';
 import { getIfUtils, removeEmpty } from 'webpack-config-utils';
 
@@ -115,11 +115,12 @@ const UMDconfig = {
       crypto: 'crypto',
       'node-fetch': 'fetch',
       jsonld: 'jsonld',
+      'jsonld-signatures': 'jsigs',
       '@transmute/es256k-jws-ts': 'es256kJwsTs',
     },
   },
   plugins: removeEmpty(
-    /** @type {Plugin[]} */ ([...plugins, ifProduction(uglify())])
+    /** @type {Plugin[]} */ ([...plugins, ifProduction(minify)])
   ),
 };
 
