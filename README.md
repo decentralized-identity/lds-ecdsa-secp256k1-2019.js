@@ -22,6 +22,60 @@ This project relies on:
 npm i @transmute/lds-ecdsa-secp256k1-2019 --save
 ```
 
+### Issue and Verify with vc-js
+
+````js
+
+const {
+  EcdsaSecp256k1KeyClass2019,
+  EcdsaSecp256k1Signature2019,
+  defaultDocumentLoader,
+} = require('@transmute/lds-ecdsa-secp256k1-2019');
+
+const vc = require('vc-js');
+
+const key = new EcdsaSecp256k1KeyClass2019({
+  id:
+    'did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg#qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM',
+  controller: 'did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg',
+  privateKeyJwk: {
+    kty: 'EC',
+    crv: 'secp256k1',
+    d: 'wNZx20zCHoOehqaBOFsdLELabfv8sX0612PnuAiyc-g',
+    x: 'NbASvplLIO_XTzP9R69a3MuqOO0DQw2LGnhJjirpd4w',
+    y: 'EiZOvo9JWPz1yGlNNW66IV8uA44EQP_Yv_E7OZl1NG0',
+    kid: 'qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM',
+  },
+});
+
+const suite = new EcdsaSecp256k1Signature2019({
+  key,
+});
+
+// Sample unsigned credential
+const credential = {
+  '@context': [
+    'https://www.w3.org/2018/credentials/v1',
+    'https://www.w3.org/2018/credentials/examples/v1',
+  ],
+  id: 'https://example.com/credentials/1872',
+  type: ['VerifiableCredential', 'AlumniCredential'],
+  issuer: key.controller,
+  issuanceDate: '2010-01-01T19:23:24Z',
+  credentialSubject: {
+    id: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
+    alumniOf: 'Example University',
+  },
+};
+
+const signedVC = await vc.issue({ credential, suite });
+const result = await vc.verify({
+  credential: signedVC,
+  suite,
+  documentLoader: defaultDocumentLoader,
+});
+```
+
 ### Sign
 
 ```ts
@@ -72,7 +126,7 @@ const signed = await jsigs.sign(
   }
 );
 // see verify for example.
-```
+````
 
 ### Verify
 
