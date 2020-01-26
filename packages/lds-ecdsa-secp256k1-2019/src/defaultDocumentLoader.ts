@@ -12,30 +12,34 @@ const documentLoader = _browser
   ? jsonld.documentLoaders.xhr()
   : jsonld.documentLoaders.node();
 
-export default async (url: string, callback: any) => {
+export default async (url: string) => {
   // console.log(url);
   // are we handling a DID?
   if (url.indexOf('did:') === 0) {
-    let doc;
-    try {
-      doc = await resolver.resolve(url);
-    } catch (e) {
-      callback(e);
-    }
+    const doc = await resolver.resolve(url);
 
     // TODO: add proper jsonld logic for iterating all possible DID URIs.
-    // iterate public keys, find the correct id...
-    for (const publicKey of doc.publicKey) {
-      if (publicKey.id === url) {
-        return callback(null, {
-          contextUrl: null, // this is for a context via a link header
-          document: publicKey, // this is the actual document that was loaded
-          documentUrl: url, // this is the actual context URL after redirects
-        });
+
+    if (url.indexOf('#')) {
+      // iterate public keys, find the correct id...
+      for (const publicKey of doc.publicKey) {
+        if (publicKey.id === url) {
+          return {
+            contextUrl: null, // this is for a context via a link header
+            document: publicKey, // this is the actual document that was loaded
+            documentUrl: url, // this is the actual context URL after redirects
+          };
+        }
       }
     }
+
+    return {
+      contextUrl: null, // this is for a context via a link header
+      document: doc, // this is the actual document that was loaded
+      documentUrl: url, // this is the actual context URL after redirects
+    };
   }
 
   //   is this a published (public) context?
-  return documentLoader(url, callback);
+  return documentLoader(url);
 };

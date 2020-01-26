@@ -1,9 +1,13 @@
-import dids from './dids';
-import documentLoader from './documentLoader';
-import documents from './documents';
+import didDoc from './didDoc.json';
+import didDocJwks from './didDocJwks.json';
+import exampleDoc from './exampleDoc.json';
+
+import documentLoader from './customDocumentLoader';
 
 export default {
-  dids,
+  didDoc,
+  didDocJwks,
+  exampleDoc,
+
   documentLoader,
-  documents,
 };

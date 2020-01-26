@@ -1,0 +1,75 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://docs.element-did.com/contexts/sidetree/sidetree-v0.1.jsonld"
+  ],
+  "publicKey": [
+    {
+      "type": "EcdsaSecp256k1VerificationKey2019",
+      "id": "#qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM",
+      "usage": "signing",
+      "publicKeyJwk": {
+        "x": "NbASvplLIO_XTzP9R69a3MuqOO0DQw2LGnhJjirpd4w",
+        "kty": "EC",
+        "crv": "secp256k1",
+        "y": "EiZOvo9JWPz1yGlNNW66IV8uA44EQP_Yv_E7OZl1NG0",
+        "kid": "qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM"
+      },
+      "controller": "did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg"
+    },
+    {
+      "id": "#primary",
+      "usage": "signing",
+      "publicKeyHex": "0335b012be994b20efd74f33fd47af5adccbaa38ed03430d8b1a78498e2ae9778c",
+      "type": "EcdsaSecp256k1VerificationKey2019"
+    },
+    {
+      "type": "EcdsaSecp256k1VerificationKey2019",
+      "id": "#recovery",
+      "usage": "recovery",
+      "publicKeyHex": "03f4c82cee043eeb8dbed2bf02a6b9b066c742557816a738f74a6e4dfd2bbc6469",
+      "controller": "did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg"
+    },
+    {
+      "type": "Ed25519VerificationKey2018",
+      "publicKeyBase58": "5gjvqgVsgJYsTaxmVdZ4jtPfgafe7FkvAKF2xRLtkW3H",
+      "id": "did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg#PiF0Sf3wDqec9_LYGO5T5-i4ihm7byhbUpoMq2nhZBg",
+      "usage": "signing",
+      "controller": "did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg"
+    }
+  ],
+  "capabilityInvocation": [
+    "#qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM",
+    "#primary",
+    "#recovery",
+    "did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg#PiF0Sf3wDqec9_LYGO5T5-i4ihm7byhbUpoMq2nhZBg"
+  ],
+  "authentication": [
+    "#qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM",
+    "#primary",
+    "#recovery",
+    "#PiF0Sf3wDqec9_LYGO5T5-i4ihm7byhbUpoMq2nhZBg"
+  ],
+  "capabilityDelegation": [
+    "#qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM",
+    "#primary",
+    "#recovery",
+    "#PiF0Sf3wDqec9_LYGO5T5-i4ihm7byhbUpoMq2nhZBg"
+  ],
+  "keyAgreement": [
+    {
+      "type": "X25519KeyAgreementKey2019",
+      "publicKeyBase58": "25aM2gBrRcZyK5GcGamw9QNH36D1mLxMn2GQ68twTSQr",
+      "id": "#keyAgreement",
+      "usage": "signing",
+      "controller": "did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg"
+    }
+  ],
+  "assertionMethod": [
+    "#qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM",
+    "#primary",
+    "#recovery",
+    "#PiF0Sf3wDqec9_LYGO5T5-i4ihm7byhbUpoMq2nhZBg"
+  ],
+  "id": "did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg"
+}

@@ -1,0 +1,206 @@
+{
+  "didDocument": {
+    "@context": ["https://schema.org/", "https://w3id.org/did/v1"],
+    "id": "did:btcr:xkrn-xz7q-q0mx-4cl",
+    "service": [
+      {
+        "type": "agent",
+        "serviceEndpoint": "https://azure.microsoft.com/dif/hub/did:btcr:xkrn-xz7q-q0mx-4cl"
+      },
+      {
+        "type": "xdi",
+        "serviceEndpoint": "https://xdi03-at.danubeclouds.com/cl/+!:did:btcr:xkrn-xz7q-q0mx-4cl"
+      },
+      {
+        "name": "homepage",
+        "serviceEndpoint": "https://danubetech.com/"
+      },
+      {
+        "name": "projects",
+        "serviceEndpoint": "https://github.com/peacekeeper/blockchain-identity"
+      }
+    ],
+    "authentication": [
+      {
+        "type": "EcdsaSecp256k1SignatureAuthentication2019",
+        "publicKey": ["#satoshi"]
+      }
+    ],
+    "publicKey": [
+      {
+        "id": "did:btcr:xkrn-xz7q-q0mx-4cl#key-0",
+        "type": "EcdsaSecp256k1VerificationKey2019",
+        "publicKeyHex": "024a63c4362772b0fafc51ac02470dae3f8da8a05d90bae9e1ef3f5243180120dd"
+      },
+      {
+        "id": "did:btcr:xkrn-xz7q-q0mx-4cl#key-1",
+        "type": "EcdsaSecp256k1VerificationKey2019",
+        "publicKeyHex": "02b5470c5c0557ef7548dec23220d4d75f8c4aa1b459c190f100f4f78a1adb215b"
+      },
+      {
+        "id": "did:btcr:xkrn-xz7q-q0mx-4cl#key-2",
+        "type": "EcdsaSecp256k1VerificationKey2019",
+        "publicKeyHex": "02e2078417a258acc2c9f9eb856b35b508d1e5a23fc1dcf94fd6f7337b1cb7fb90"
+      },
+      {
+        "id": "did:btcr:xkrn-xz7q-q0mx-4cl#key-3",
+        "type": "EcdsaSecp256k1VerificationKey2019",
+        "publicKeyHex": "02074f9b37f26ae410742ec754b02b3f7d078ff73d7e06b6f7a670d5701805ef82"
+      },
+      {
+        "id": "did:btcr:xkrn-xz7q-q0mx-4cl#key-4",
+        "type": "EcdsaSecp256k1VerificationKey2019",
+        "publicKeyHex": "02b4021b6907fbc12b2c0d9278d21bc0f371a56b553fc75eaf75b79d925301f7a4"
+      },
+      {
+        "id": "did:btcr:xkrn-xz7q-q0mx-4cl#key-5",
+        "type": "EcdsaSecp256k1VerificationKey2019",
+        "publicKeyHex": "03479e1bde881c15edc82b7c4d0d04441c5e7f6dce4b703f43c5d5c12948df32d2"
+      },
+      {
+        "id": "did:btcr:xkrn-xz7q-q0mx-4cl#satoshi",
+        "type": "EcdsaSecp256k1VerificationKey2019",
+        "publicKeyHex": "03479e1bde881c15edc82b7c4d0d04441c5e7f6dce4b703f43c5d5c12948df32d2"
+      }
+    ]
+  },
+  "resolverMetadata": {
+    "duration": 543,
+    "identifier": "did:btcr:xkrn-xz7q-q0mx-4cl",
+    "driverId": "driver-universalresolver/driver-did-btcr",
+    "didUrl": {
+      "didUrlString": "did:btcr:xkrn-xz7q-q0mx-4cl",
+      "did": {
+        "didString": "did:btcr:xkrn-xz7q-q0mx-4cl",
+        "method": "btcr",
+        "methodSpecificId": "xkrn-xz7q-q0mx-4cl",
+        "parseTree": null,
+        "parseRuleCount": null
+      },
+      "parameters": null,
+      "parametersMap": {},
+      "path": "",
+      "query": null,
+      "fragment": null,
+      "parseTree": null,
+      "parseRuleCount": null
+    }
+  },
+  "methodMetadata": {
+    "inputScriptPubKey": "03479e1bde881c15edc82b7c4d0d04441c5e7f6dce4b703f43c5d5c12948df32d2",
+    "continuationUri": "https://raw.githubusercontent.com/peacekeeper/self/master/ddo",
+    "continuation": {
+      "@context": ["https://schema.org/", "https://w3id.org/did/v1"],
+      "id": "did:btcr:xkrn-xz7q-q0mx-4cl/0#peacekeeper-self-signed-claim",
+      "type": ["Credential", "Identity", "Person"],
+      "issuer": "did:btcr:xkrn-xz7q-q0mx-4cl/0#did-transaction-key",
+      "issued": "2017-08-07",
+      "label": "peacekeeper-self-signed-claim",
+      "claim": { "relationship": "me", "alternate-name": "peacekeeper" },
+      "publicKey": [
+        {
+          "id": "did:btcr:xkrn-xz7q-q0mx-4cl#key-0",
+          "type": "EcdsaSecp256k1VerificationKey2019",
+          "publicKeyHex": "024a63c4362772b0fafc51ac02470dae3f8da8a05d90bae9e1ef3f5243180120dd"
+        }
+      ],
+      "authentication": ["did:btcr:xkrn-xz7q-q0mx-4cl#key-0"],
+      "capabilityInvocation": ["did:btcr:xkrn-xz7q-q0mx-4cl#key-0"],
+      "capabilityDelegation": ["did:btcr:xkrn-xz7q-q0mx-4cl#key-0"],
+      "assertionMethod": ["did:btcr:xkrn-xz7q-q0mx-4cl#key-0"],
+      "keyAgreement": ["did:btcr:xkrn-xz7q-q0mx-4cl#key-0"],
+      "service": [
+        {
+          "type": "agent",
+          "serviceEndpoint": "https://azure.microsoft.com/dif/hub/did:btcr:xkrn-xz7q-q0mx-4cl"
+        },
+        {
+          "type": "xdi",
+          "serviceEndpoint": "https://xdi03-at.danubeclouds.com/cl/+!:did:btcr:xkrn-xz7q-q0mx-4cl"
+        },
+        { "name": "homepage", "serviceEndpoint": "https://danubetech.com/" },
+        {
+          "name": "projects",
+          "serviceEndpoint": "https://github.com/peacekeeper/blockchain-identity"
+        }
+      ],
+      "signature": {
+        "type": "EcdsaKoblitzSignature2016",
+        "created": "2017-08-07T00:00:00Z",
+        "creator": "ecdsa-koblitz-pubkey:024a63c4362772b0fafc51ac02470dae3f8da8a05d90bae9e1ef3f5243180120dd",
+        "signatureValue": "..TODO.."
+      }
+    },
+    "chain": "TESTNET",
+    "initialBlockHeight": 1156667,
+    "initialTransactionPosition": 30,
+    "initialTxoIndex": 0,
+    "initialTxid": {
+      "chain": "TESTNET",
+      "txid": "b01a3498ff817def5017e0c17c9171c4e19cced1a6a63d67f617ac06fe5baf96",
+      "txoIndex": 0
+    },
+    "blockHeight": 1202316,
+    "transactionPosition": 80,
+    "txoIndex": 0,
+    "txid": {
+      "chain": "TESTNET",
+      "txid": "5310788c3f8c47d2e0336a4de7ecaceb52405699b571bd1254bf4580caf66950",
+      "txoIndex": 0
+    },
+    "spentInChainAndTxids": [
+      {
+        "spentInChainAndTxid": {
+          "chain": "TESTNET",
+          "txid": "3a966c8b2254a73ee594498a55e5d6746f9e66df44730217a1ffe045f83b79a7",
+          "txoIndex": 0
+        },
+        "inputScriptPubKey": "024a63c4362772b0fafc51ac02470dae3f8da8a05d90bae9e1ef3f5243180120dd",
+        "continuationUri": "https://raw.githubusercontent.com/peacekeeper/self/master/ddo",
+        "transactionTime": 1502133311
+      },
+      {
+        "spentInChainAndTxid": {
+          "chain": "TESTNET",
+          "txid": "06dff479edb2ad0bf4dc2d970518207f80673b47832f823317719fda900acddb",
+          "txoIndex": 0
+        },
+        "inputScriptPubKey": "02b5470c5c0557ef7548dec23220d4d75f8c4aa1b459c190f100f4f78a1adb215b",
+        "continuationUri": "https://raw.githubusercontent.com/peacekeeper/self/master/ddo",
+        "transactionTime": 1505732977
+      },
+      {
+        "spentInChainAndTxid": {
+          "chain": "TESTNET",
+          "txid": "dd0c39bc488b3e154f460920e6e6f1cf1b308736348d28dc2d126907e10e4800",
+          "txoIndex": 0
+        },
+        "inputScriptPubKey": "02e2078417a258acc2c9f9eb856b35b508d1e5a23fc1dcf94fd6f7337b1cb7fb90",
+        "continuationUri": "https://raw.githubusercontent.com/peacekeeper/self/master/ddo",
+        "transactionTime": 1505763040
+      },
+      {
+        "spentInChainAndTxid": {
+          "chain": "TESTNET",
+          "txid": "a8150d3d1e7e635314ca0bd2b8976aa5d98d46f7bd64dfc850969586afb2526e",
+          "txoIndex": 0
+        },
+        "inputScriptPubKey": "02074f9b37f26ae410742ec754b02b3f7d078ff73d7e06b6f7a670d5701805ef82",
+        "continuationUri": "https://raw.githubusercontent.com/peacekeeper/self/master/ddo",
+        "transactionTime": 1505763885
+      },
+      {
+        "spentInChainAndTxid": {
+          "chain": "TESTNET",
+          "txid": "5310788c3f8c47d2e0336a4de7ecaceb52405699b571bd1254bf4580caf66950",
+          "txoIndex": 0
+        },
+        "inputScriptPubKey": "02b4021b6907fbc12b2c0d9278d21bc0f371a56b553fc75eaf75b79d925301f7a4",
+        "continuationUri": "https://raw.githubusercontent.com/peacekeeper/self/master/ddo",
+        "transactionTime": 1505765090
+      }
+    ]
+  },
+  "content": null,
+  "contentType": null
+}

@@ -22,63 +22,130 @@ This project relies on:
 npm i @transmute/lds-ecdsa-secp256k1-2019 --save
 ```
 
+### Issue and Verify with vc-js
+
+````js
+
+const {
+  EcdsaSecp256k1KeyClass2019,
+  EcdsaSecp256k1Signature2019,
+  defaultDocumentLoader,
+} = require('@transmute/lds-ecdsa-secp256k1-2019');
+
+const vc = require('vc-js');
+
+const key = new EcdsaSecp256k1KeyClass2019({
+  id:
+    'did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg#qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM',
+  controller: 'did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg',
+  privateKeyJwk: {
+    kty: 'EC',
+    crv: 'secp256k1',
+    d: 'wNZx20zCHoOehqaBOFsdLELabfv8sX0612PnuAiyc-g',
+    x: 'NbASvplLIO_XTzP9R69a3MuqOO0DQw2LGnhJjirpd4w',
+    y: 'EiZOvo9JWPz1yGlNNW66IV8uA44EQP_Yv_E7OZl1NG0',
+    kid: 'qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM',
+  },
+});
+
+const suite = new EcdsaSecp256k1Signature2019({
+  key,
+});
+
+// Sample unsigned credential
+const credential = {
+  '@context': [
+    'https://www.w3.org/2018/credentials/v1',
+    'https://www.w3.org/2018/credentials/examples/v1',
+  ],
+  id: 'https://example.com/credentials/1872',
+  type: ['VerifiableCredential', 'AlumniCredential'],
+  issuer: key.controller,
+  issuanceDate: '2010-01-01T19:23:24Z',
+  credentialSubject: {
+    id: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
+    alumniOf: 'Example University',
+  },
+};
+
+const signedVC = await vc.issue({ credential, suite });
+const result = await vc.verify({
+  credential: signedVC,
+  suite,
+  documentLoader: defaultDocumentLoader,
+});
+```
+
 ### Sign
 
 ```ts
-import { sign } from `@transmute/lds-ecdsa-secp256k1-2019`;
-const doc = {
-  '@context': {
-    action: 'schema:action',
-    schema: 'http://schema.org/',
+const jsigs = require('jsonld-signatures');
+
+const { AssertionProofPurpose } = jsigs.purposes;
+
+const {
+  EcdsaSecp256k1KeyClass2019,
+  EcdsaSecp256k1Signature2019,
+  defaultDocumentLoader,
+} = require('@transmute/lds-ecdsa-secp256k1-2019');
+
+const key = new EcdsaSecp256k1KeyClass2019({
+  id:
+    'did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg#qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM',
+  controller: 'did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg',
+  privateKeyJwk: {
+    kty: 'EC',
+    crv: 'secp256k1',
+    d: 'wNZx20zCHoOehqaBOFsdLELabfv8sX0612PnuAiyc-g',
+    x: 'NbASvplLIO_XTzP9R69a3MuqOO0DQw2LGnhJjirpd4w',
+    y: 'EiZOvo9JWPz1yGlNNW66IV8uA44EQP_Yv_E7OZl1NG0',
+    kid: 'qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM',
   },
-  action: 'AuthenticateMe',
-};
-const signatureOptions = {
-  challenge: 'abc',
-  created: '2019-01-16T20:13:10Z',
-  domain: 'example.com',
-  proofPurpose: 'authentication',
-  verificationMethod: 'https://example.com/i/alice/keys/2',
-};
-const privateKey = {
-  crv: 'secp256k1',
-  d: 'rhYFsBPF9q3-uZThy7B3c4LDF_8wnozFUAEm5LLC4Zw',
-  kid: 'JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw',
-  kty: 'EC',
-  x: 'dWCvM4fTdeM0KmloF57zxtBPXTOythHPMm1HCLrdd3A',
-  y: '36uMVGM7hnw-N6GnjFcihWE3SkrhMLzzLCdPMXPEXlA',
-};
-const signedDocument = await sign(doc, signatureOptions, privateKey);
+});
+const signed = await jsigs.sign(
+  {
+    '@context': [
+      {
+        schema: 'http://schema.org/',
+        name: 'schema:name',
+        homepage: 'schema:url',
+        image: 'schema:image',
+      },
+    ],
+    name: 'Manu Sporny',
+    homepage: 'https://manu.sporny.org/',
+    image: 'https://manu.sporny.org/images/manu.png',
+  },
+  {
+    compactProof: false,
+    documentLoader: defaultDocumentLoader,
+    purpose: new AssertionProofPurpose(),
+    suite: new EcdsaSecp256k1Signature2019({
+      key,
+    }),
+  }
+);
 // see verify for example.
-```
+````
 
 ### Verify
 
 ```ts
-import { verify } from `@transmute/lds-ecdsa-secp256k1-2019`;
-const signedDocument = {
-  '@context': 'https://w3id.org/security/v2',
-  'http://schema.org/action': 'AuthenticateMe',
-  proof: {
-    challenge: 'abc',
-    created: '2019-01-16T20:13:10Z',
-    domain: 'example.com',
-    proofPurpose: 'authentication',
-    verificationMethod: 'https://example.com/i/alice/keys/2',
-    type: 'EcdsaSecp256k1Signature2019',
-    jws:
-      'eyJhbGciOiJFUzI1NksiLCJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdfQ..QgbRWT8w1LJet_KFofNfz_TVs27z4pwdPwUHhXYUaFlKicBQp6U1H5Kx-mST6uFvIyOqrYTJifDijZbtAfi0MA',
-  },
-};
-const publicKey = {
-  crv: 'secp256k1',
-  kid: 'JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw',
-  kty: 'EC',
-  x: 'dWCvM4fTdeM0KmloF57zxtBPXTOythHPMm1HCLrdd3A',
-  y: '36uMVGM7hnw-N6GnjFcihWE3SkrhMLzzLCdPMXPEXlA',
-};
-const verified = await verify(signedDocument, publicKey);
-// expect: verified === true
+const res = await jsigs.verify(signed, {
+  suite: new EcdsaSecp256k1Signature2019({
+    key,
+  }),
+
+  compactProof: false,
+  documentLoader: defaultDocumentLoader,
+  purpose: new AssertionProofPurpose(),
+});
+// Leave for development purposes
+if (!res.verified) {
+  // tslint:disable-next-line:no-console
+  console.log(res);
+}
+expect(res.verified).toBe(true);
 ```
 
 ## Motivation

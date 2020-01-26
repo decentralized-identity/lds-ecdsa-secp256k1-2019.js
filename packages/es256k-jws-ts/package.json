@@ -1,6 +1,6 @@
 {
   "name": "@transmute/es256k-jws-ts",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "TypeScript Web Assembly Secp256k1 ES256K JWS and JWT.",
   "keywords": [
     "JWS",
@@ -133,5 +133,6 @@
     "typescript": "3.2.2",
     "typescript-tslint-plugin": "0.2.1",
     "webpack-config-utils": "2.3.1"
-  }
+  },
+  "gitHead": "68884a67ee46b90c66c1d63c90334d1b9de18ea7"
 }
