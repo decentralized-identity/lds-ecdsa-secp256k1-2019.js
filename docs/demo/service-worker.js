@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/lds-ecdsa-secp256k1-2019.js/demo/precache-manifest.4d1814f143f4e58ff5314cc814e1cf85.js"
+  "/lds-ecdsa-secp256k1-2019.js/demo/precache-manifest.15fa3f83cce77585b8e2deb0ca64226e.js"
 );
 
 self.addEventListener('message', (event) => {
