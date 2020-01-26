@@ -1,6 +1,6 @@
 {
   "name": "@transmute/es256k-jws-ts",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "TypeScript Web Assembly Secp256k1 ES256K JWS and JWT.",
   "keywords": [
     "JWS",
