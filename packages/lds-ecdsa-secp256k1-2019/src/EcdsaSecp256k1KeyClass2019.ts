@@ -128,6 +128,9 @@ function joseVerifierFactory(
 }
 
 class EcdsaSecp256k1KeyClass2019 implements IEcdsaSecp256k1KeyClass2019Options {
+  /**
+   * Used to support importing of public keys from resolvers.
+   */
   public static async from(options: IEcdsaSecp256k1KeyClass2019Options) {
     return new EcdsaSecp256k1KeyClass2019(options);
   }
