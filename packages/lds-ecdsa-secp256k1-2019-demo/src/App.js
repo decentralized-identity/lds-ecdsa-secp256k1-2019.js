@@ -10,6 +10,8 @@ const {
   defaultDocumentLoader,
 } = require('@transmute/lds-ecdsa-secp256k1-2019');
 
+const vc = require('vc-js');
+
 class App extends React.Component {
   state = {};
   async componentWillMount() {
@@ -42,22 +44,22 @@ class App extends React.Component {
         kid: 'qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM',
       },
     });
+
+    const suite = new EcdsaSecp256k1Signature2019({
+      key,
+    });
     const signed = await jsigs.sign(doc, {
       compactProof: false,
       documentLoader: defaultDocumentLoader,
       purpose: new AssertionProofPurpose(),
-      suite: new EcdsaSecp256k1Signature2019({
-        key,
-      }),
+      suite,
     });
 
     this.setState({
       signed: signed,
     });
     const res = await jsigs.verify(signed, {
-      suite: new EcdsaSecp256k1Signature2019({
-        key,
-      }),
+      suite,
 
       compactProof: false,
       // controller: didDoc,
@@ -71,6 +73,38 @@ class App extends React.Component {
     }
     this.setState({
       verified: res,
+    });
+
+    // Sample unsigned credential
+    const credential = {
+      '@context': [
+        'https://www.w3.org/2018/credentials/v1',
+        'https://www.w3.org/2018/credentials/examples/v1',
+      ],
+      id: 'https://example.com/credentials/1872',
+      type: ['VerifiableCredential', 'AlumniCredential'],
+      issuer: key.controller,
+      issuanceDate: '2010-01-01T19:23:24Z',
+      credentialSubject: {
+        id: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
+        alumniOf: 'Example University',
+      },
+    };
+
+    const signedVC = await vc.issue({ credential, suite });
+
+    this.setState({
+      vc_issued: signedVC,
+    });
+
+    const result = await vc.verify({
+      credential: signedVC,
+      suite,
+      documentLoader: defaultDocumentLoader,
+    });
+
+    this.setState({
+      vc_verified: result,
     });
   }
   render() {
