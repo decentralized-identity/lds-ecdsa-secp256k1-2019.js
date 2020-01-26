@@ -1,98 +1,83 @@
 import React from 'react';
 
-import * as ES256K from '@transmute/es256k-jws-ts';
+const jsigs = require('jsonld-signatures');
 
-import * as EcsdaSecp256k1Signature2019 from '@transmute/lds-ecdsa-secp256k1-2019';
+const { AssertionProofPurpose } = jsigs.purposes;
 
-const privateJWK = {
-  crv: 'secp256k1',
-  d: 'rhYFsBPF9q3-uZThy7B3c4LDF_8wnozFUAEm5LLC4Zw',
-  kid: 'JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw',
-  kty: 'EC',
-  x: 'dWCvM4fTdeM0KmloF57zxtBPXTOythHPMm1HCLrdd3A',
-  y: '36uMVGM7hnw-N6GnjFcihWE3SkrhMLzzLCdPMXPEXlA',
-};
-
-const publicJWK = {
-  crv: 'secp256k1',
-  kid: 'JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw',
-  kty: 'EC',
-  x: 'dWCvM4fTdeM0KmloF57zxtBPXTOythHPMm1HCLrdd3A',
-  y: '36uMVGM7hnw-N6GnjFcihWE3SkrhMLzzLCdPMXPEXlA',
-};
-
-const signatureOptions = {
-  challenge: 'abc',
-  created: '2019-01-16T20:13:10Z',
-  domain: 'example.com',
-  proofPurpose: 'authentication',
-  verificationMethod:
-    'did:btcr:xxcl-lzpq-q83a-0d5#key-JUvpllMEYUZ2joO59UNui_XYDqxVqiFLLAJ8klWuPBw',
-};
-const doc = {
-  '@context': {
-    action: 'schema:action',
-    schema: 'http://schema.org/',
-  },
-  action: 'AuthenticateMe',
-};
+const {
+  EcdsaSecp256k1KeyClass2019,
+  EcdsaSecp256k1Signature2019,
+  defaultDocumentLoader,
+} = require('@transmute/lds-ecdsa-secp256k1-2019');
 
 class App extends React.Component {
-  state = {
-    JWS: '',
-  };
+  state = {};
   async componentWillMount() {
-    const jws = await ES256K.JWS.sign(
-      {
-        hello: 'world',
-      },
-      privateJWK
-    );
-    const verified = await ES256K.JWS.verify(jws, publicJWK);
+    const doc = {
+      '@context': [
+        {
+          schema: 'http://schema.org/',
+          name: 'schema:name',
+          homepage: 'schema:url',
+          image: 'schema:image',
+        },
+      ],
+      name: 'Manu Sporny',
+      homepage: 'https://manu.sporny.org/',
+      image: 'https://manu.sporny.org/images/manu.png',
+    };
     this.setState({
-      jws,
-      verified,
+      doc,
+    });
+    const key = new EcdsaSecp256k1KeyClass2019({
+      id:
+        'did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg#qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM',
+      controller: 'did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg',
+      privateKeyJwk: {
+        kty: 'EC',
+        crv: 'secp256k1',
+        d: 'wNZx20zCHoOehqaBOFsdLELabfv8sX0612PnuAiyc-g',
+        x: 'NbASvplLIO_XTzP9R69a3MuqOO0DQw2LGnhJjirpd4w',
+        y: 'EiZOvo9JWPz1yGlNNW66IV8uA44EQP_Yv_E7OZl1NG0',
+        kid: 'qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM',
+      },
+    });
+    const signed = await jsigs.sign(doc, {
+      compactProof: false,
+      documentLoader: defaultDocumentLoader,
+      purpose: new AssertionProofPurpose(),
+      suite: new EcdsaSecp256k1Signature2019({
+        key,
+      }),
     });
 
-    const options = {};
-    const ldSig = await EcsdaSecp256k1Signature2019.sign(
-      doc,
-      signatureOptions,
-      privateJWK,
-      options
-    );
-
-    const lsSigVerified = await EcsdaSecp256k1Signature2019.verify(
-      ldSig,
-      options
-    );
-
     this.setState({
-      ldSig,
-      lsSigVerified,
+      signed: signed,
+    });
+    const res = await jsigs.verify(signed, {
+      suite: new EcdsaSecp256k1Signature2019({
+        key,
+      }),
+
+      compactProof: false,
+      // controller: didDoc,
+      documentLoader: defaultDocumentLoader,
+      purpose: new AssertionProofPurpose(),
+    });
+    // Leave for development purposes
+    if (!res.verified) {
+      // tslint:disable-next-line:no-console
+      console.log(res);
+    }
+    this.setState({
+      verified: res,
     });
   }
   render() {
     return (
       <div className="App">
-        <h4>ES256K</h4>
-
-        <h5>Public Key</h5>
-        <pre>{JSON.stringify(publicJWK, null, 2)}</pre>
-
-        <h5>JWS</h5>
-        <code>{this.state.jws}</code>
-
-        <h5>Verified Payload</h5>
-        <code>{JSON.stringify(this.state.verified, null, 2)}</code>
-
-        <hr />
-
-        <h5>JSON-LD Signature</h5>
-        <pre>{JSON.stringify(this.state.ldSig, null, 2)}</pre>
-
-        <h5>Verified JSON-LD Signature</h5>
-        <code>{JSON.stringify(this.state.lsSigVerified, null, 2)}</code>
+        <h5>EcdsaSecp256k1Signature2019</h5>
+        <pre>{JSON.stringify(this.state, null, 2)}</pre>
       </div>
     );
   }
