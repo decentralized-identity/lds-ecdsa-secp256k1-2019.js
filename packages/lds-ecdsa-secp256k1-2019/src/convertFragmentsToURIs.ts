@@ -8,7 +8,7 @@ const transformArrays = [
 const transformObjects = ['publicKey', 'keyAgreement'];
 
 const convertFragmentsToURIs = (didDocument: any) => {
-  const convertedDidDocument = { ...didDocument };
+  const convertedDidDocument = JSON.parse(JSON.stringify({ ...didDocument }));
 
   transformObjects.forEach((property) => {
     if (convertedDidDocument[property]) {

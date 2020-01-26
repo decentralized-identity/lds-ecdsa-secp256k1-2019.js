@@ -120,7 +120,7 @@ function joseVerifierFactory(
         verified = true;
       } catch (e) {
         // tslint:disable-next-line:no-console
-        console.error('An error occurred when verifying signature: ', e);
+        // console.error('An error occurred when verifying signature: ', e);
       }
       return verified;
     },
@@ -128,6 +128,10 @@ function joseVerifierFactory(
 }
 
 class EcdsaSecp256k1KeyClass2019 implements IEcdsaSecp256k1KeyClass2019Options {
+  public static async from(options: IEcdsaSecp256k1KeyClass2019Options) {
+    return new EcdsaSecp256k1KeyClass2019(options);
+  }
+
   /**
    * Generates and returns a public key fingerprint using https://tools.ietf.org/html/rfc7638
    *
@@ -245,10 +249,6 @@ class EcdsaSecp256k1KeyClass2019 implements IEcdsaSecp256k1KeyClass2019Options {
   //   verifyFingerprint(/*fingerprint*/) {
   //     // TODO: implement
   //     throw new Error('`verifyFingerprint` API is not implemented.');
-  //   }
-
-  //   static async from(options) {
-  //     return new EcdsaSecp256k1KeyClass2019(options);
   //   }
 
   /**

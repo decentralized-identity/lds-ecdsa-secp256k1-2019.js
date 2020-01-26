@@ -10,7 +10,7 @@ const getJson = async (url: string) =>
     method: 'get',
   }).then((data: any) => data.json());
 
-const normalizeDocument = (res: any) => {
+export const normalizeDocument = (res: any) => {
   const didDoc =
     res.id && res.id.indexOf('did:') === 0 ? res : { ...res.didDocument };
   // hack for BTCR.
@@ -67,13 +67,17 @@ export default {
           );
       }
 
+      if (res.didDocument === null) {
+        throw new Error('Could not resolve DID with Universal Resolver.');
+      }
+
       const normalizedDoc = await normalizeDocument(res);
       const deFragmented = convertFragmentsToURIs(normalizedDoc);
       const finalDoc = deFragmented;
       return finalDoc;
     } catch (e) {
       // tslint:disable-next-line:no-console
-      console.error('Could not resolve: ' + didUri);
+      // console.error('Could not resolve: ' + didUri);
       throw new Error(e);
     }
   },

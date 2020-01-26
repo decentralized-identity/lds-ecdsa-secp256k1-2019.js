@@ -128,9 +128,9 @@ class EcdsaSecp256k1Signature2019 extends LinkedDataSignature {
 
     const verificationMethod = await super.getVerificationMethod({
       proof,
-
       documentLoader,
     });
+
     await this.assertVerificationMethod({ verificationMethod });
     return verificationMethod;
   }
@@ -161,10 +161,8 @@ class EcdsaSecp256k1Signature2019 extends LinkedDataSignature {
       return true;
     }
 
-    let { verificationMethod } = proof;
-    if (!verificationMethod) {
-      verificationMethod = proof.creator;
-    }
+    const { verificationMethod } = proof;
+
     // only match if the key specified matches the one in the proof
     if (typeof verificationMethod === 'object') {
       return verificationMethod.id === this.key.id;

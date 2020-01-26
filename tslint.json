@@ -32,6 +32,7 @@
     "jsdoc-format": [true, "check-multiline-start"],
     "variable-name": [true, "check-format", "allow-leading-underscore"],
     "semicolon": [true, "always"],
+    "object-literal-sort-keys": [false],
     "only-arrow-functions": [true, "allow-named-functions"]
   }
 }
