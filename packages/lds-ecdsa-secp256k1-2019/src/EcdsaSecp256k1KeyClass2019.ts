@@ -116,7 +116,7 @@ function joseVerifierFactory(
       const payload = Buffer.from(data.buffer, data.byteOffset, data.length);
 
       try {
-        await ES256K.JWS.verifyDetached(signature, payload, key.privateKeyJwk);
+        await ES256K.JWS.verifyDetached(signature, payload, key.publicKeyJwk);
         verified = true;
       } catch (e) {
         // tslint:disable-next-line:no-console
