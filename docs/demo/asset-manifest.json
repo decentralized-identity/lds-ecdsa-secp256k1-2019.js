@@ -1,15 +1,22 @@
 {
   "files": {
     "main.css": "/lds-ecdsa-secp256k1-2019.js/demo/static/css/main.67b6c417.chunk.css",
-    "main.js": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/main.3f45ebef.chunk.js",
-    "main.js.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/main.3f45ebef.chunk.js.map",
-    "runtime~main.js": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/runtime~main.3cb9eba9.js",
-    "runtime~main.js.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/runtime~main.3cb9eba9.js.map",
-    "static/js/2.8c97c86c.chunk.js": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/2.8c97c86c.chunk.js",
-    "static/js/2.8c97c86c.chunk.js.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/2.8c97c86c.chunk.js.map",
+    "main.js": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/main.b247fc89.chunk.js",
+    "main.js.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/main.b247fc89.chunk.js.map",
+    "runtime-main.js": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/runtime-main.072baf29.js",
+    "runtime-main.js.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/runtime-main.072baf29.js.map",
+    "static/js/2.a0436725.chunk.js": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/2.a0436725.chunk.js",
+    "static/js/2.a0436725.chunk.js.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/2.a0436725.chunk.js.map",
     "index.html": "/lds-ecdsa-secp256k1-2019.js/demo/index.html",
-    "precache-manifest.f1140d4f179a71ecc099caafe7180818.js": "/lds-ecdsa-secp256k1-2019.js/demo/precache-manifest.f1140d4f179a71ecc099caafe7180818.js",
+    "precache-manifest.62a0fb8a47d945da4aa266b62571253c.js": "/lds-ecdsa-secp256k1-2019.js/demo/precache-manifest.62a0fb8a47d945da4aa266b62571253c.js",
     "service-worker.js": "/lds-ecdsa-secp256k1-2019.js/demo/service-worker.js",
-    "static/css/main.67b6c417.chunk.css.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/css/main.67b6c417.chunk.css.map"
-  }
+    "static/css/main.67b6c417.chunk.css.map": "/lds-ecdsa-secp256k1-2019.js/demo/static/css/main.67b6c417.chunk.css.map",
+    "static/js/2.a0436725.chunk.js.LICENSE.txt": "/lds-ecdsa-secp256k1-2019.js/demo/static/js/2.a0436725.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.072baf29.js",
+    "static/js/2.a0436725.chunk.js",
+    "static/css/main.67b6c417.chunk.css",
+    "static/js/main.b247fc89.chunk.js"
+  ]
 }

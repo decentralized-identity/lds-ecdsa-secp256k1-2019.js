@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/lds-ecdsa-secp256k1-2019.js/demo/precache-manifest.f1140d4f179a71ecc099caafe7180818.js"
+  "/lds-ecdsa-secp256k1-2019.js/demo/precache-manifest.62a0fb8a47d945da4aa266b62571253c.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -35,5 +35,5 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/lds-ecdsa-secp256k1-2019.js/demo/index.html"), {
   
-  blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
+  blacklist: [/^\/_/,/\/[^/?]+\.[^/]+$/],
 });
