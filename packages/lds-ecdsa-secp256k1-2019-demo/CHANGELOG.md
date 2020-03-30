@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/compare/v0.1.1...v0.1.3) (2020-03-30)
+
+**Note:** Version bump only for package lds-ecdsa-secp256k1-2019-demo
+
+
+
+
+
 ## [0.1.1](https://github.com/decentralized-identity/lds-ecdsa-secp256k1-2019.js/compare/v0.1.0...v0.1.1) (2020-01-26)
 
 **Note:** Version bump only for package lds-ecdsa-secp256k1-2019-demo
