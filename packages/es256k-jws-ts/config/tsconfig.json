@@ -1,7 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "target": "es2017",
+    "target": "ES6",
     "module": "commonjs",
     "allowJs": true,
     "checkJs": true,
@@ -10,7 +10,5 @@
     "noEmit": true,
     "importHelpers": false
   },
-  "include": [
-    "."
-  ]
+  "include": ["."]
 }

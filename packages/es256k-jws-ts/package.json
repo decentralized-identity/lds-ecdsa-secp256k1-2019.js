@@ -81,7 +81,7 @@
   "dependencies": {
     "@trust/keyto": "0.3.7",
     "base64url": "3.0.1",
-    "bitcoin-ts": "1.4.0",
+    "bitcoin-ts": "1.14.2",
     "json-stringify-deterministic": "1.0.1"
   },
   "devDependencies": {
@@ -94,7 +94,6 @@
     "@types/node": "8.10.*",
     "@types/prettier": "1.15.2",
     "@types/rollup-plugin-node-builtins": "2.1.1",
-    "@types/webassembly-js-api": "^0.0.2",
     "@types/webpack-config-utils": "2.3.0",
     "bip39": "3.0.2",
     "brotli-size": "0.0.3",
@@ -131,7 +130,7 @@
     "tslint-config-standard": "8.0.1",
     "tslint-etc": "1.2.12",
     "typedoc": "0.15.0",
-    "typescript": "3.2.2",
+    "typescript": "3.8.3",
     "typescript-tslint-plugin": "0.2.1",
     "webpack-config-utils": "2.3.1"
   },
