@@ -33,8 +33,8 @@ class App extends React.Component {
     });
     const key = new EcdsaSecp256k1KeyClass2019({
       id:
-        'did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg#qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM',
-      controller: 'did:elem:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg',
+        'did:elem:ropsten:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg#qfknmVDhMi3Uc190IHBRfBRqMgbEEBRzWOj1E9EmzwM',
+      controller: 'did:elem:ropsten:EiChaglAoJaBq7bGWp6bA5PAQKaOTzVHVXIlJqyQbljfmg',
       privateKeyJwk: {
         kty: 'EC',
         crv: 'secp256k1',
