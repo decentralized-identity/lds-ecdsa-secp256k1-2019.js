@@ -1,5 +1,8 @@
 # EcdsaSecp256k1Signature2019
 
+This library is no longer maintained, please use [JsonWebSignature2020](https://github.com/w3c-ccg/lds-jws2020) instead.
+
+
 [![Build Status](https://travis-ci.org/decentralized-identity/lds-ecdsa-secp256k1-2019.js.svg?branch=master)](https://travis-ci.org/decentralized-identity/lds-ecdsa-secp256k1-2019.js) [![codecov](https://codecov.io/gh/decentralized-identity/lds-ecdsa-secp256k1-2019.js/branch/master/graph/badge.svg)](https://codecov.io/gh/decentralized-identity/lds-ecdsa-secp256k1-2019.js)
 
 🚧 This library is experimental / under development / not audited. Use at your own risk.
